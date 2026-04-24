@@ -1,0 +1,2 @@
+LIBRARY GaussianBlurASM_Vertical
+EXPORTS GaussianBlurASM_Vertical
