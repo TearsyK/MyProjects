@@ -1,0 +1,263 @@
+\doxysection{Game\+Utils.\+h File Reference}
+\hypertarget{_game_utils_8h}{}\label{_game_utils_8h}\index{GameUtils.h@{GameUtils.h}}
+{\ttfamily \#include "{}raylib.\+h"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+Include dependency graph for Game\+Utils.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_game_utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_game_utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_game_utils_8h_a1d5d7f0c802f5b7d246ce464bf41cabf}{Draw\+Battleship\+Board}} (const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&board\+Data, int offsetX, int offsetY, bool show\+Ships)
+\item 
+bool \mbox{\hyperlink{_game_utils_8h_a35abe2673efd668b931810ab2c02c65a}{Check\+Ship\+Placement\+Validity}} (const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&board, int ship\+Length, int startX, int startY, bool is\+Horizontal, int excluded\+Ship\+Id=0)
+\item 
+void \mbox{\hyperlink{_game_utils_8h_a481e2c3b52b0235430fe84ee1deb1337}{Draw\+Ship\+Visual}} (int length, float drawX, float drawY, Color color, bool is\+Horizontal, int cell\+Size, bool draw\+Outline=false)
+\item 
+void \mbox{\hyperlink{_game_utils_8h_a012aa595ef98a3f72b60457c34634fd7}{Draw\+Ship\+Rect}} (const \mbox{\hyperlink{struct_ship}{Ship}} \&ship, float drawX, float drawY, Color color, bool is\+Horizontal, int cell\+Size, bool draw\+Outline=false)
+\item 
+bool \mbox{\hyperlink{_game_utils_8h_ae1283992bd4ce57a08a26cb9ecbb26bc}{Draw\+Button}} (Rectangle bounds, const char \texorpdfstring{$\ast$}{*}text, Color color, Color hover\+Color, bool enabled=true)
+\item 
+bool \mbox{\hyperlink{_game_utils_8h_a2b476282d2ba0a9bd6319a2ed7e84102}{Check\+Save\+File\+Exists}} ()
+\item 
+void \mbox{\hyperlink{_game_utils_8h_a6376f565fdcdd9f592453cd1dc2982d7}{Save\+Game}} (int current\+Game\+State, const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&player\+Board, const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&ai\+Board)
+\item 
+bool \mbox{\hyperlink{_game_utils_8h_a57dde5ccfa21c448ce731b1b3aa7182c}{Load\+Game}} (int \&current\+Game\+State, \mbox{\hyperlink{class_game_board}{Game\+Board}} \&player\+Board, \mbox{\hyperlink{class_game_board}{Game\+Board}} \&ai\+Board)
+\item 
+void \mbox{\hyperlink{_game_utils_8h_ac96fb115a5c95ed86327fea80168495a}{Delete\+Save\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{_game_utils_8h_a7242fea9327c0747b47801c13f4e05c9}{screen\+Width}} = 1200
+\item 
+const int \mbox{\hyperlink{_game_utils_8h_a8897ff6127a397a8ee4ea76976f8534d}{screen\+Height}} = 700
+\item 
+const int \mbox{\hyperlink{_game_utils_8h_aa7a2b8ea2c784a4ad8b58a3262bb4f07}{BOARD\+\_\+\+SIZE}} = 10
+\item 
+const int \mbox{\hyperlink{_game_utils_8h_a3d75a3045c57e393b76a1760deb2533c}{CELL\+\_\+\+SIZE}} = 40
+\item 
+const int \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}} = 20
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_a332623cca513c23ea592d4285dd31afe}{WATER\+\_\+\+COLOR}} = SKYBLUE
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_a0defd4238a36bbfcc0b34417f0916fb6}{GRID\+\_\+\+LINE\+\_\+\+COLOR}} = DARKBLUE
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_a5ee174ec108abb1d9ac25a28cb62b78f}{HIT\+\_\+\+COLOR}} = RED
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_a4a4fc59a46485c21039d229f7e8f1a5c}{MISS\+\_\+\+COLOR}} = LIGHTGRAY
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_a8d2b50883b5c62a45894d5c777e88b46}{SHIP\+\_\+\+COLOR}} = DARKGRAY
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_a2e3ca8b40ceb00194f4fef848d751d13}{SUNK\+\_\+\+SHIP\+\_\+\+COLOR}} = BLACK
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_a3a396dd8aab01d707e785cd056664a7c}{BUTTON\+\_\+\+COLOR}} = LIGHTGRAY
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_aef9c568b7cf736b32f7c2bddc190a4e7}{BUTTON\+\_\+\+HOVER\+\_\+\+COLOR}} = GRAY
+\item 
+const Color \mbox{\hyperlink{_game_utils_8h_ac17411e288c024f1545ff1867fc99c06}{TEXT\+\_\+\+COLOR}} = DARKBLUE
+\item 
+const std\+::string \mbox{\hyperlink{_game_utils_8h_a91614265ede4d0df0eb2a22a32e7ddeb}{SAVE\+\_\+\+FILE\+\_\+\+PATH}} = "{}battleship\+\_\+save.\+txt"{}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_game_utils_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_game_utils_8h_a2b476282d2ba0a9bd6319a2ed7e84102}\index{GameUtils.h@{GameUtils.h}!CheckSaveFileExists@{CheckSaveFileExists}}
+\index{CheckSaveFileExists@{CheckSaveFileExists}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{CheckSaveFileExists()}{CheckSaveFileExists()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a2b476282d2ba0a9bd6319a2ed7e84102} 
+bool Check\+Save\+File\+Exists (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8h_a35abe2673efd668b931810ab2c02c65a}\index{GameUtils.h@{GameUtils.h}!CheckShipPlacementValidity@{CheckShipPlacementValidity}}
+\index{CheckShipPlacementValidity@{CheckShipPlacementValidity}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{CheckShipPlacementValidity()}{CheckShipPlacementValidity()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a35abe2673efd668b931810ab2c02c65a} 
+bool Check\+Ship\+Placement\+Validity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{board}{, }\item[{int}]{ship\+Length}{, }\item[{int}]{startX}{, }\item[{int}]{startY}{, }\item[{bool}]{is\+Horizontal}{, }\item[{int}]{excluded\+Ship\+Id}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_game_utils_8h_a35abe2673efd668b931810ab2c02c65a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_game_utils_8h_ac96fb115a5c95ed86327fea80168495a}\index{GameUtils.h@{GameUtils.h}!DeleteSaveGame@{DeleteSaveGame}}
+\index{DeleteSaveGame@{DeleteSaveGame}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{DeleteSaveGame()}{DeleteSaveGame()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_ac96fb115a5c95ed86327fea80168495a} 
+void Delete\+Save\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8h_a1d5d7f0c802f5b7d246ce464bf41cabf}\index{GameUtils.h@{GameUtils.h}!DrawBattleshipBoard@{DrawBattleshipBoard}}
+\index{DrawBattleshipBoard@{DrawBattleshipBoard}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{DrawBattleshipBoard()}{DrawBattleshipBoard()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a1d5d7f0c802f5b7d246ce464bf41cabf} 
+void Draw\+Battleship\+Board (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{board\+Data}{, }\item[{int}]{offsetX}{, }\item[{int}]{offsetY}{, }\item[{bool}]{show\+Ships}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8h_ae1283992bd4ce57a08a26cb9ecbb26bc}\index{GameUtils.h@{GameUtils.h}!DrawButton@{DrawButton}}
+\index{DrawButton@{DrawButton}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{DrawButton()}{DrawButton()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_ae1283992bd4ce57a08a26cb9ecbb26bc} 
+bool Draw\+Button (\begin{DoxyParamCaption}\item[{Rectangle}]{bounds}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{text}{, }\item[{Color}]{color}{, }\item[{Color}]{hover\+Color}{, }\item[{bool}]{enabled}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8h_a012aa595ef98a3f72b60457c34634fd7}\index{GameUtils.h@{GameUtils.h}!DrawShipRect@{DrawShipRect}}
+\index{DrawShipRect@{DrawShipRect}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{DrawShipRect()}{DrawShipRect()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a012aa595ef98a3f72b60457c34634fd7} 
+void Draw\+Ship\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ship}{Ship}} \&}]{ship}{, }\item[{float}]{drawX}{, }\item[{float}]{drawY}{, }\item[{Color}]{color}{, }\item[{bool}]{is\+Horizontal}{, }\item[{int}]{cell\+Size}{, }\item[{bool}]{draw\+Outline}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{_game_utils_8h_a012aa595ef98a3f72b60457c34634fd7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_game_utils_8h_a481e2c3b52b0235430fe84ee1deb1337}\index{GameUtils.h@{GameUtils.h}!DrawShipVisual@{DrawShipVisual}}
+\index{DrawShipVisual@{DrawShipVisual}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{DrawShipVisual()}{DrawShipVisual()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a481e2c3b52b0235430fe84ee1deb1337} 
+void Draw\+Ship\+Visual (\begin{DoxyParamCaption}\item[{int}]{length}{, }\item[{float}]{drawX}{, }\item[{float}]{drawY}{, }\item[{Color}]{color}{, }\item[{bool}]{is\+Horizontal}{, }\item[{int}]{cell\+Size}{, }\item[{bool}]{draw\+Outline}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{_game_utils_8h_a481e2c3b52b0235430fe84ee1deb1337_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_game_utils_8h_a57dde5ccfa21c448ce731b1b3aa7182c}\index{GameUtils.h@{GameUtils.h}!LoadGame@{LoadGame}}
+\index{LoadGame@{LoadGame}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{LoadGame()}{LoadGame()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a57dde5ccfa21c448ce731b1b3aa7182c} 
+bool Load\+Game (\begin{DoxyParamCaption}\item[{int \&}]{current\+Game\+State}{, }\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{player\+Board}{, }\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{ai\+Board}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8h_a6376f565fdcdd9f592453cd1dc2982d7}\index{GameUtils.h@{GameUtils.h}!SaveGame@{SaveGame}}
+\index{SaveGame@{SaveGame}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{SaveGame()}{SaveGame()}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a6376f565fdcdd9f592453cd1dc2982d7} 
+void Save\+Game (\begin{DoxyParamCaption}\item[{int}]{current\+Game\+State}{, }\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{player\+Board}{, }\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{ai\+Board}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_game_utils_8h_a6376f565fdcdd9f592453cd1dc2982d7_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{_game_utils_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}\index{GameUtils.h@{GameUtils.h}!BOARD\_PADDING@{BOARD\_PADDING}}
+\index{BOARD\_PADDING@{BOARD\_PADDING}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{BOARD\_PADDING}{BOARD\_PADDING}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c} 
+const int BOARD\+\_\+\+PADDING = 20}
+
+\Hypertarget{_game_utils_8h_aa7a2b8ea2c784a4ad8b58a3262bb4f07}\index{GameUtils.h@{GameUtils.h}!BOARD\_SIZE@{BOARD\_SIZE}}
+\index{BOARD\_SIZE@{BOARD\_SIZE}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{BOARD\_SIZE}{BOARD\_SIZE}}
+{\footnotesize\ttfamily \label{_game_utils_8h_aa7a2b8ea2c784a4ad8b58a3262bb4f07} 
+const int BOARD\+\_\+\+SIZE = 10}
+
+\Hypertarget{_game_utils_8h_a3a396dd8aab01d707e785cd056664a7c}\index{GameUtils.h@{GameUtils.h}!BUTTON\_COLOR@{BUTTON\_COLOR}}
+\index{BUTTON\_COLOR@{BUTTON\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_COLOR}{BUTTON\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a3a396dd8aab01d707e785cd056664a7c} 
+const Color BUTTON\+\_\+\+COLOR = LIGHTGRAY}
+
+\Hypertarget{_game_utils_8h_aef9c568b7cf736b32f7c2bddc190a4e7}\index{GameUtils.h@{GameUtils.h}!BUTTON\_HOVER\_COLOR@{BUTTON\_HOVER\_COLOR}}
+\index{BUTTON\_HOVER\_COLOR@{BUTTON\_HOVER\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_HOVER\_COLOR}{BUTTON\_HOVER\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_aef9c568b7cf736b32f7c2bddc190a4e7} 
+const Color BUTTON\+\_\+\+HOVER\+\_\+\+COLOR = GRAY}
+
+\Hypertarget{_game_utils_8h_a3d75a3045c57e393b76a1760deb2533c}\index{GameUtils.h@{GameUtils.h}!CELL\_SIZE@{CELL\_SIZE}}
+\index{CELL\_SIZE@{CELL\_SIZE}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{CELL\_SIZE}{CELL\_SIZE}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a3d75a3045c57e393b76a1760deb2533c} 
+const int CELL\+\_\+\+SIZE = 40}
+
+\Hypertarget{_game_utils_8h_a0defd4238a36bbfcc0b34417f0916fb6}\index{GameUtils.h@{GameUtils.h}!GRID\_LINE\_COLOR@{GRID\_LINE\_COLOR}}
+\index{GRID\_LINE\_COLOR@{GRID\_LINE\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{GRID\_LINE\_COLOR}{GRID\_LINE\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a0defd4238a36bbfcc0b34417f0916fb6} 
+const Color GRID\+\_\+\+LINE\+\_\+\+COLOR = DARKBLUE}
+
+\Hypertarget{_game_utils_8h_a5ee174ec108abb1d9ac25a28cb62b78f}\index{GameUtils.h@{GameUtils.h}!HIT\_COLOR@{HIT\_COLOR}}
+\index{HIT\_COLOR@{HIT\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{HIT\_COLOR}{HIT\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a5ee174ec108abb1d9ac25a28cb62b78f} 
+const Color HIT\+\_\+\+COLOR = RED}
+
+\Hypertarget{_game_utils_8h_a4a4fc59a46485c21039d229f7e8f1a5c}\index{GameUtils.h@{GameUtils.h}!MISS\_COLOR@{MISS\_COLOR}}
+\index{MISS\_COLOR@{MISS\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{MISS\_COLOR}{MISS\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a4a4fc59a46485c21039d229f7e8f1a5c} 
+const Color MISS\+\_\+\+COLOR = LIGHTGRAY}
+
+\Hypertarget{_game_utils_8h_a91614265ede4d0df0eb2a22a32e7ddeb}\index{GameUtils.h@{GameUtils.h}!SAVE\_FILE\_PATH@{SAVE\_FILE\_PATH}}
+\index{SAVE\_FILE\_PATH@{SAVE\_FILE\_PATH}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{SAVE\_FILE\_PATH}{SAVE\_FILE\_PATH}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a91614265ede4d0df0eb2a22a32e7ddeb} 
+const std\+::string SAVE\+\_\+\+FILE\+\_\+\+PATH = "{}battleship\+\_\+save.\+txt"{}}
+
+\Hypertarget{_game_utils_8h_a8897ff6127a397a8ee4ea76976f8534d}\index{GameUtils.h@{GameUtils.h}!screenHeight@{screenHeight}}
+\index{screenHeight@{screenHeight}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{screenHeight}{screenHeight}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a8897ff6127a397a8ee4ea76976f8534d} 
+const int screen\+Height = 700}
+
+\Hypertarget{_game_utils_8h_a7242fea9327c0747b47801c13f4e05c9}\index{GameUtils.h@{GameUtils.h}!screenWidth@{screenWidth}}
+\index{screenWidth@{screenWidth}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{screenWidth}{screenWidth}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a7242fea9327c0747b47801c13f4e05c9} 
+const int screen\+Width = 1200}
+
+\Hypertarget{_game_utils_8h_a8d2b50883b5c62a45894d5c777e88b46}\index{GameUtils.h@{GameUtils.h}!SHIP\_COLOR@{SHIP\_COLOR}}
+\index{SHIP\_COLOR@{SHIP\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{SHIP\_COLOR}{SHIP\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a8d2b50883b5c62a45894d5c777e88b46} 
+const Color SHIP\+\_\+\+COLOR = DARKGRAY}
+
+\Hypertarget{_game_utils_8h_a2e3ca8b40ceb00194f4fef848d751d13}\index{GameUtils.h@{GameUtils.h}!SUNK\_SHIP\_COLOR@{SUNK\_SHIP\_COLOR}}
+\index{SUNK\_SHIP\_COLOR@{SUNK\_SHIP\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{SUNK\_SHIP\_COLOR}{SUNK\_SHIP\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a2e3ca8b40ceb00194f4fef848d751d13} 
+const Color SUNK\+\_\+\+SHIP\+\_\+\+COLOR = BLACK}
+
+\Hypertarget{_game_utils_8h_ac17411e288c024f1545ff1867fc99c06}\index{GameUtils.h@{GameUtils.h}!TEXT\_COLOR@{TEXT\_COLOR}}
+\index{TEXT\_COLOR@{TEXT\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{TEXT\_COLOR}{TEXT\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_ac17411e288c024f1545ff1867fc99c06} 
+const Color TEXT\+\_\+\+COLOR = DARKBLUE}
+
+\Hypertarget{_game_utils_8h_a332623cca513c23ea592d4285dd31afe}\index{GameUtils.h@{GameUtils.h}!WATER\_COLOR@{WATER\_COLOR}}
+\index{WATER\_COLOR@{WATER\_COLOR}!GameUtils.h@{GameUtils.h}}
+\doxysubsubsection{\texorpdfstring{WATER\_COLOR}{WATER\_COLOR}}
+{\footnotesize\ttfamily \label{_game_utils_8h_a332623cca513c23ea592d4285dd31afe} 
+const Color WATER\+\_\+\+COLOR = SKYBLUE}
+

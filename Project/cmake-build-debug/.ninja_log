@@ -1,0 +1,11 @@
+# ninja log v6
+25	1069	7397577840792996	CMakeFiles/Project.dir/Maszyna.cpp.obj	dae18653b0cfc767
+15	941	7674226682641449	build.ninja	4b4ba2ae3097b99c
+6	359	7398969239816887	CMakeFiles/Project.dir/Produkt.cpp.obj	f669bf6799aa29bd
+6	606	7397589105156501	CMakeFiles/Project.dir/main.cpp.obj	a6b2d2dca8ad8c7b
+38	1071	7397577840926393	CMakeFiles/Project.dir/Lista.cpp.obj	be017612cc1ff55f
+7	606	7398961415882067	CMakeFiles/Project.dir/Game.cpp.obj	bccf67edacaa3354
+29	1070	7397577840828979	CMakeFiles/Project.dir/Surowiec.cpp.obj	627521607cbe0c1d
+42	1066	7397577840966403	CMakeFiles/Project.dir/ObiektBazowy.cpp.obj	eee2351624c49d99
+5	663	7398966845584991	CMakeFiles/Project.dir/Symulacja.cpp.obj	500cb742bc1b97b
+360	453	7398969243356454	Project.exe	8f24d1a921dfb09a

@@ -1,0 +1,158 @@
+\doxysection{AIPlayer Class Reference}
+\hypertarget{class_a_i_player}{}\label{class_a_i_player}\index{AIPlayer@{AIPlayer}}
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+
+
+Inheritance diagram for AIPlayer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{class_a_i_player__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for AIPlayer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_a_i_player__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_i_player_a5adbc0c6afb721e7ea1ea755098bc89a}{AIPlayer}} (int \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}}, const std\+::string \&\mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}}="{}Komputer"{})
+\item 
+void \mbox{\hyperlink{class_a_i_player_a35c147bce988e5c362e38f195b9fb5eb}{Initialize\+Ships}} (\mbox{\hyperlink{class_game_board}{Game\+Board}} \&board) override
+\item 
+void \mbox{\hyperlink{class_a_i_player_a9187a1d6a1a9eba432b0d7c5b22843e2}{Start\+Thinking}} (const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&own\+Board, const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&enemy\+Board)
+\item 
+bool \mbox{\hyperlink{class_a_i_player_a506b70899a29237b5cb23b640385ef70}{Is\+Thinking}} () const
+\item 
+Vector2 \mbox{\hyperlink{class_a_i_player_ab6c0aff8c31a318636ef37b859cb3529}{Get\+AIMove\+Result}} ()
+\item 
+bool \mbox{\hyperlink{class_a_i_player_a97375fb4f0a7a26940c44c2506f21eea}{Make\+Move}} (\mbox{\hyperlink{class_game_board}{Game\+Board}} \&enemy\+Board) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_player}{Player}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_a3810bdd56eddef6747ffeacda2816e94}{Player}} (int \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}}, const std\+::string \&\mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}})
+\item 
+virtual \mbox{\hyperlink{class_player_a11017c0ed8a639f3b1308ab167fbeca2}{\texorpdfstring{$\sim$}{\string~}\+Player}} ()=default
+\item 
+int \mbox{\hyperlink{class_player_ac1f339df6ac57bb0b1a226efc39ba80e}{Get\+Id}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_player_affddef50f994746a860e2366e412917f}{Get\+Name}} () const
+\item 
+\mbox{\hyperlink{class_game_board}{Game\+Board}} \& \mbox{\hyperlink{class_player_ac8516e66006e6519aa462de9060b1643}{Get\+Board}} ()
+\item 
+const \mbox{\hyperlink{class_game_board}{Game\+Board}} \& \mbox{\hyperlink{class_player_ad76c825448f9cec8efd8e008a29d936b}{Get\+Board}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::future$<$ Vector2 $>$ \mbox{\hyperlink{class_a_i_player_af4c841a7179a7e28d9ea4fce99db49fd}{ai\+Move\+Future}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_player}{Player}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}}
+\item 
+std\+::string \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}}
+\item 
+\mbox{\hyperlink{class_game_board}{Game\+Board}} \mbox{\hyperlink{class_player_a6639174fa61587eb474cec5de233d7e9}{player\+Board}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_a_i_player_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_i_player_a5adbc0c6afb721e7ea1ea755098bc89a}\index{AIPlayer@{AIPlayer}!AIPlayer@{AIPlayer}}
+\index{AIPlayer@{AIPlayer}!AIPlayer@{AIPlayer}}
+\doxysubsubsection{\texorpdfstring{AIPlayer()}{AIPlayer()}}
+{\footnotesize\ttfamily \label{class_a_i_player_a5adbc0c6afb721e7ea1ea755098bc89a} 
+AIPlayer\+::\+AIPlayer (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{const std\+::string \&}]{name}{ = {\ttfamily "{}Komputer"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{class_a_i_player_a5adbc0c6afb721e7ea1ea755098bc89a_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{class_a_i_player_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_i_player_ab6c0aff8c31a318636ef37b859cb3529}\index{AIPlayer@{AIPlayer}!GetAIMoveResult@{GetAIMoveResult}}
+\index{GetAIMoveResult@{GetAIMoveResult}!AIPlayer@{AIPlayer}}
+\doxysubsubsection{\texorpdfstring{GetAIMoveResult()}{GetAIMoveResult()}}
+{\footnotesize\ttfamily \label{class_a_i_player_ab6c0aff8c31a318636ef37b859cb3529} 
+Vector2 AIPlayer\+::\+Get\+AIMove\+Result (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_a_i_player_a35c147bce988e5c362e38f195b9fb5eb}\index{AIPlayer@{AIPlayer}!InitializeShips@{InitializeShips}}
+\index{InitializeShips@{InitializeShips}!AIPlayer@{AIPlayer}}
+\doxysubsubsection{\texorpdfstring{InitializeShips()}{InitializeShips()}}
+{\footnotesize\ttfamily \label{class_a_i_player_a35c147bce988e5c362e38f195b9fb5eb} 
+void AIPlayer\+::\+Initialize\+Ships (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{board}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_player_ac82c33b916880e714149e1eb048c4770}{Player}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_a_i_player_a35c147bce988e5c362e38f195b9fb5eb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_a_i_player_a506b70899a29237b5cb23b640385ef70}\index{AIPlayer@{AIPlayer}!IsThinking@{IsThinking}}
+\index{IsThinking@{IsThinking}!AIPlayer@{AIPlayer}}
+\doxysubsubsection{\texorpdfstring{IsThinking()}{IsThinking()}}
+{\footnotesize\ttfamily \label{class_a_i_player_a506b70899a29237b5cb23b640385ef70} 
+bool AIPlayer\+::\+Is\+Thinking (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_a_i_player_a97375fb4f0a7a26940c44c2506f21eea}\index{AIPlayer@{AIPlayer}!MakeMove@{MakeMove}}
+\index{MakeMove@{MakeMove}!AIPlayer@{AIPlayer}}
+\doxysubsubsection{\texorpdfstring{MakeMove()}{MakeMove()}}
+{\footnotesize\ttfamily \label{class_a_i_player_a97375fb4f0a7a26940c44c2506f21eea} 
+bool AIPlayer\+::\+Make\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{enemy\+Board}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_player_a5b8cd5c60e91a5436d03b906d00a4e93}{Player}}.
+
+\Hypertarget{class_a_i_player_a9187a1d6a1a9eba432b0d7c5b22843e2}\index{AIPlayer@{AIPlayer}!StartThinking@{StartThinking}}
+\index{StartThinking@{StartThinking}!AIPlayer@{AIPlayer}}
+\doxysubsubsection{\texorpdfstring{StartThinking()}{StartThinking()}}
+{\footnotesize\ttfamily \label{class_a_i_player_a9187a1d6a1a9eba432b0d7c5b22843e2} 
+void AIPlayer\+::\+Start\+Thinking (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{own\+Board}{, }\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{enemy\+Board}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_a_i_player_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_i_player_af4c841a7179a7e28d9ea4fce99db49fd}\index{AIPlayer@{AIPlayer}!aiMoveFuture@{aiMoveFuture}}
+\index{aiMoveFuture@{aiMoveFuture}!AIPlayer@{AIPlayer}}
+\doxysubsubsection{\texorpdfstring{aiMoveFuture}{aiMoveFuture}}
+{\footnotesize\ttfamily \label{class_a_i_player_af4c841a7179a7e28d9ea4fce99db49fd} 
+std\+::future$<$Vector2$>$ AIPlayer\+::ai\+Move\+Future}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

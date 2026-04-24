@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\Lab5Season3.dir\\Zadanie3Template.cpp.obj",
+            "outputs": [
+                "C:\\Users\\Xkacp\\CLionProjects\\Lab5Season3\\cmake-build-debug\\vc140.pdb",
+                "CMakeFiles\\Lab5Season3.dir\\Zadanie3Template.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

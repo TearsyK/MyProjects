@@ -1,0 +1,42 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "MSVC",
+	"compiler-id" : "MSVC",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "C:/Users/Xkacp/CLionProjects/Lab5Season3/cmake-build-debug",
+	"dir-cur-src" : "C:/Users/Xkacp/CLionProjects/Lab5Season3",
+	"dir-top-bld" : "C:/Users/Xkacp/CLionProjects/Lab5Season3/cmake-build-debug",
+	"dir-top-src" : "C:/Users/Xkacp/CLionProjects/Lab5Season3",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Users/Xkacp/CLionProjects/Lab5Season3/cmake-build-debug/CMakeFiles/Lab5Season3.dir",
+	"sources" : 
+	{
+		"CMakeFiles/Lab5Season3.dir/Zadanie2Template.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/Xkacp/CLionProjects/Lab5Season3/Zadanie2Template.cpp"
+		},
+		"CMakeFiles/Lab5Season3.dir/Zadanie3Template.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/Xkacp/CLionProjects/Lab5Season3/Zadanie3Template.cpp"
+		},
+		"CMakeFiles/Lab5Season3.dir/main.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/Xkacp/CLionProjects/Lab5Season3/main.cpp"
+		},
+		"CMakeFiles/Lab5Season3.dir/zad1Template.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/Xkacp/CLionProjects/Lab5Season3/zad1Template.cpp"
+		}
+	}
+}

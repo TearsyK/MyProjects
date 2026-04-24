@@ -1,0 +1,7 @@
+<map id="HumanPlayer::InitializeShips" name="HumanPlayer::InitializeShips">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,195,57"/>
+<area shape="rect" id="Node000002" href="$class_player.html#affddef50f994746a860e2366e412917f" title=" " alt="" coords="248,5,370,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,30,232,25,233,31,195,35"/>
+<area shape="rect" id="Node000003" href="$class_game_board.html#a903331f76329356e09fd6c76a4e87c62" title=" " alt="" coords="243,56,376,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,53,228,57,227,62,195,58"/>
+</map>

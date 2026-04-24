@@ -1,0 +1,9 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles\Lab5Season3.dir\main.cpp.obj: dyndep
+
+build CMakeFiles\Lab5Season3.dir\zad1Template.cpp.obj: dyndep
+
+build CMakeFiles\Lab5Season3.dir\Zadanie2Template.cpp.obj: dyndep
+
+build CMakeFiles\Lab5Season3.dir\Zadanie3Template.cpp.obj: dyndep
+

@@ -1,0 +1,4 @@
+Czas pracy fabryki: 300
+Maszyna: kok
+Ilosc wykorzystanego surowcu kok1:  6000
+Ilosc wyprodukowanego produktu kok2: 2313

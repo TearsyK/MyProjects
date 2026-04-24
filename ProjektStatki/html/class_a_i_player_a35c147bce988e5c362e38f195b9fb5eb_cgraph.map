@@ -1,0 +1,13 @@
+<map id="AIPlayer::InitializeShips" name="AIPlayer::InitializeShips">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,166,108"/>
+<area shape="rect" id="Node000002" href="$class_player.html#ac1f339df6ac57bb0b1a226efc39ba80e" title=" " alt="" coords="243,5,342,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,78,213,42,231,35,233,40,215,46,121,83"/>
+<area shape="rect" id="Node000003" href="$class_player.html#affddef50f994746a860e2366e412917f" title=" " alt="" coords="231,56,354,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,82,215,76,216,81,166,88"/>
+<area shape="rect" id="Node000004" href="$class_game_board.html#a07da1609d0f7d0f45d92ffb5b1cbb344" title=" " alt="" coords="214,107,371,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="166,102,198,106,198,111,165,107"/>
+<area shape="rect" id="Node000006" href="$class_game_board.html#a903331f76329356e09fd6c76a4e87c62" title=" " alt="" coords="226,157,359,184"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,106,215,143,233,149,231,154,213,148,119,111"/>
+<area shape="rect" id="Node000005" href="$_game_utils_8cpp.html#a90bc854df7463e2c7b5937afb79e79a2" title=" " alt="" coords="419,107,608,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="371,117,403,117,403,123,371,123"/>
+</map>

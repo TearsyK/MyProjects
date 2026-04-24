@@ -1,0 +1,27 @@
+var _game_utils_8h =
+[
+    [ "CheckSaveFileExists", "_game_utils_8h.html#a2b476282d2ba0a9bd6319a2ed7e84102", null ],
+    [ "CheckShipPlacementValidity", "_game_utils_8h.html#a35abe2673efd668b931810ab2c02c65a", null ],
+    [ "DeleteSaveGame", "_game_utils_8h.html#ac96fb115a5c95ed86327fea80168495a", null ],
+    [ "DrawBattleshipBoard", "_game_utils_8h.html#a1d5d7f0c802f5b7d246ce464bf41cabf", null ],
+    [ "DrawButton", "_game_utils_8h.html#ae1283992bd4ce57a08a26cb9ecbb26bc", null ],
+    [ "DrawShipRect", "_game_utils_8h.html#a012aa595ef98a3f72b60457c34634fd7", null ],
+    [ "DrawShipVisual", "_game_utils_8h.html#a481e2c3b52b0235430fe84ee1deb1337", null ],
+    [ "LoadGame", "_game_utils_8h.html#a57dde5ccfa21c448ce731b1b3aa7182c", null ],
+    [ "SaveGame", "_game_utils_8h.html#a6376f565fdcdd9f592453cd1dc2982d7", null ],
+    [ "BOARD_PADDING", "_game_utils_8h.html#a50244aaed4a3d499871a369a72aa972c", null ],
+    [ "BOARD_SIZE", "_game_utils_8h.html#aa7a2b8ea2c784a4ad8b58a3262bb4f07", null ],
+    [ "BUTTON_COLOR", "_game_utils_8h.html#a3a396dd8aab01d707e785cd056664a7c", null ],
+    [ "BUTTON_HOVER_COLOR", "_game_utils_8h.html#aef9c568b7cf736b32f7c2bddc190a4e7", null ],
+    [ "CELL_SIZE", "_game_utils_8h.html#a3d75a3045c57e393b76a1760deb2533c", null ],
+    [ "GRID_LINE_COLOR", "_game_utils_8h.html#a0defd4238a36bbfcc0b34417f0916fb6", null ],
+    [ "HIT_COLOR", "_game_utils_8h.html#a5ee174ec108abb1d9ac25a28cb62b78f", null ],
+    [ "MISS_COLOR", "_game_utils_8h.html#a4a4fc59a46485c21039d229f7e8f1a5c", null ],
+    [ "SAVE_FILE_PATH", "_game_utils_8h.html#a91614265ede4d0df0eb2a22a32e7ddeb", null ],
+    [ "screenHeight", "_game_utils_8h.html#a8897ff6127a397a8ee4ea76976f8534d", null ],
+    [ "screenWidth", "_game_utils_8h.html#a7242fea9327c0747b47801c13f4e05c9", null ],
+    [ "SHIP_COLOR", "_game_utils_8h.html#a8d2b50883b5c62a45894d5c777e88b46", null ],
+    [ "SUNK_SHIP_COLOR", "_game_utils_8h.html#a2e3ca8b40ceb00194f4fef848d751d13", null ],
+    [ "TEXT_COLOR", "_game_utils_8h.html#ac17411e288c024f1545ff1867fc99c06", null ],
+    [ "WATER_COLOR", "_game_utils_8h.html#a332623cca513c23ea592d4285dd31afe", null ]
+];

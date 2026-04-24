@@ -1,0 +1,113 @@
+\doxysection{Game\+Board Class Reference}
+\hypertarget{class_game_board}{}\label{class_game_board}\index{GameBoard@{GameBoard}}
+
+
+{\ttfamily \#include $<$Game\+Board.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}{Game\+Board}} ()
+\item 
+void \mbox{\hyperlink{class_game_board_a903331f76329356e09fd6c76a4e87c62}{Reset}} ()
+\item 
+bool \mbox{\hyperlink{class_game_board_a07da1609d0f7d0f45d92ffb5b1cbb344}{Place\+Ship}} (\mbox{\hyperlink{struct_ship}{Ship}} new\+Ship, int startX, int startY, bool is\+Horizontal)
+\item 
+bool \mbox{\hyperlink{class_game_board_aa2d70909409f4d7fff274710697fb2d5}{Receive\+Shot}} (int x, int y)
+\item 
+bool \mbox{\hyperlink{class_game_board_ab6c384e3f4b248fa3a3a39ebc816cf46}{Are\+All\+Ships\+Sunk}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{struct_cell}{Cell}} $>$ $>$ \mbox{\hyperlink{class_game_board_ae452f28277df464c3147833fea668e6b}{board}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_ship}{Ship}} $>$ \mbox{\hyperlink{class_game_board_adbeaac3eb62ac2a196e29d55ba956051}{ships}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_game_board_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}\index{GameBoard@{GameBoard}!GameBoard@{GameBoard}}
+\index{GameBoard@{GameBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{GameBoard()}{GameBoard()}}
+{\footnotesize\ttfamily \label{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac} 
+Game\+Board\+::\+Game\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_game_board_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_board_ab6c384e3f4b248fa3a3a39ebc816cf46}\index{GameBoard@{GameBoard}!AreAllShipsSunk@{AreAllShipsSunk}}
+\index{AreAllShipsSunk@{AreAllShipsSunk}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{AreAllShipsSunk()}{AreAllShipsSunk()}}
+{\footnotesize\ttfamily \label{class_game_board_ab6c384e3f4b248fa3a3a39ebc816cf46} 
+bool Game\+Board\+::\+Are\+All\+Ships\+Sunk (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_game_board_a07da1609d0f7d0f45d92ffb5b1cbb344}\index{GameBoard@{GameBoard}!PlaceShip@{PlaceShip}}
+\index{PlaceShip@{PlaceShip}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{PlaceShip()}{PlaceShip()}}
+{\footnotesize\ttfamily \label{class_game_board_a07da1609d0f7d0f45d92ffb5b1cbb344} 
+bool Game\+Board\+::\+Place\+Ship (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ship}{Ship}}}]{new\+Ship}{, }\item[{int}]{startX}{, }\item[{int}]{startY}{, }\item[{bool}]{is\+Horizontal}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_board_a07da1609d0f7d0f45d92ffb5b1cbb344_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_board_a07da1609d0f7d0f45d92ffb5b1cbb344_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_game_board_aa2d70909409f4d7fff274710697fb2d5}\index{GameBoard@{GameBoard}!ReceiveShot@{ReceiveShot}}
+\index{ReceiveShot@{ReceiveShot}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{ReceiveShot()}{ReceiveShot()}}
+{\footnotesize\ttfamily \label{class_game_board_aa2d70909409f4d7fff274710697fb2d5} 
+bool Game\+Board\+::\+Receive\+Shot (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_game_board_a903331f76329356e09fd6c76a4e87c62}\index{GameBoard@{GameBoard}!Reset@{Reset}}
+\index{Reset@{Reset}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily \label{class_game_board_a903331f76329356e09fd6c76a4e87c62} 
+void Game\+Board\+::\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_board_a903331f76329356e09fd6c76a4e87c62_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_game_board_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_board_ae452f28277df464c3147833fea668e6b}\index{GameBoard@{GameBoard}!board@{board}}
+\index{board@{board}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{board}{board}}
+{\footnotesize\ttfamily \label{class_game_board_ae452f28277df464c3147833fea668e6b} 
+std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{struct_cell}{Cell}}$>$ $>$ Game\+Board\+::board}
+
+\Hypertarget{class_game_board_adbeaac3eb62ac2a196e29d55ba956051}\index{GameBoard@{GameBoard}!ships@{ships}}
+\index{ships@{ships}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{ships}{ships}}
+{\footnotesize\ttfamily \label{class_game_board_adbeaac3eb62ac2a196e29d55ba956051} 
+std\+::vector$<$\mbox{\hyperlink{struct_ship}{Ship}}$>$ Game\+Board\+::ships}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_game_board_8h}{Game\+Board.\+h}}\item 
+\mbox{\hyperlink{_game_board_8cpp}{Game\+Board.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,128 @@
+\doxysection{Game\+Utils.\+cpp File Reference}
+\hypertarget{_game_utils_8cpp}{}\label{_game_utils_8cpp}\index{GameUtils.cpp@{GameUtils.cpp}}
+{\ttfamily \#include "{}Game\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Game\+Board.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+Include dependency graph for Game\+Utils.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_game_utils_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_game_utils_8cpp_a1d5d7f0c802f5b7d246ce464bf41cabf}{Draw\+Battleship\+Board}} (const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&board\+Data, int offsetX, int offsetY, bool show\+Ships)
+\item 
+bool \mbox{\hyperlink{_game_utils_8cpp_a90bc854df7463e2c7b5937afb79e79a2}{Check\+Ship\+Placement\+Validity}} (const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&board, int ship\+Length, int startX, int startY, bool is\+Horizontal, int excluded\+Ship\+Id)
+\item 
+void \mbox{\hyperlink{_game_utils_8cpp_a5c923c8e647eeace4bd2a457403a570e}{Draw\+Ship\+Visual}} (int length, float drawX, float drawY, Color color, bool is\+Horizontal, int cell\+Size, bool draw\+Outline)
+\item 
+void \mbox{\hyperlink{_game_utils_8cpp_a519936a0923f1d82a36edb285d7f6c0e}{Draw\+Ship\+Rect}} (const \mbox{\hyperlink{struct_ship}{Ship}} \&ship, float drawX, float drawY, Color color, bool is\+Horizontal, int cell\+Size, bool draw\+Outline)
+\item 
+bool \mbox{\hyperlink{_game_utils_8cpp_a3c1322f8e2feb79d4dbcb5f406f353cd}{Draw\+Button}} (Rectangle bounds, const char \texorpdfstring{$\ast$}{*}text, Color color, Color hover\+Color, bool enabled)
+\item 
+bool \mbox{\hyperlink{_game_utils_8cpp_a2b476282d2ba0a9bd6319a2ed7e84102}{Check\+Save\+File\+Exists}} ()
+\item 
+void \mbox{\hyperlink{_game_utils_8cpp_a6376f565fdcdd9f592453cd1dc2982d7}{Save\+Game}} (int current\+Game\+State, const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&player\+Board, const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&ai\+Board)
+\item 
+bool \mbox{\hyperlink{_game_utils_8cpp_a57dde5ccfa21c448ce731b1b3aa7182c}{Load\+Game}} (int \&current\+Game\+State, \mbox{\hyperlink{class_game_board}{Game\+Board}} \&player\+Board, \mbox{\hyperlink{class_game_board}{Game\+Board}} \&ai\+Board)
+\item 
+void \mbox{\hyperlink{_game_utils_8cpp_ac96fb115a5c95ed86327fea80168495a}{Delete\+Save\+Game}} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_game_utils_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_game_utils_8cpp_a2b476282d2ba0a9bd6319a2ed7e84102}\index{GameUtils.cpp@{GameUtils.cpp}!CheckSaveFileExists@{CheckSaveFileExists}}
+\index{CheckSaveFileExists@{CheckSaveFileExists}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckSaveFileExists()}{CheckSaveFileExists()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_a2b476282d2ba0a9bd6319a2ed7e84102} 
+bool Check\+Save\+File\+Exists (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8cpp_a90bc854df7463e2c7b5937afb79e79a2}\index{GameUtils.cpp@{GameUtils.cpp}!CheckShipPlacementValidity@{CheckShipPlacementValidity}}
+\index{CheckShipPlacementValidity@{CheckShipPlacementValidity}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckShipPlacementValidity()}{CheckShipPlacementValidity()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_a90bc854df7463e2c7b5937afb79e79a2} 
+bool Check\+Ship\+Placement\+Validity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{board}{, }\item[{int}]{ship\+Length}{, }\item[{int}]{startX}{, }\item[{int}]{startY}{, }\item[{bool}]{is\+Horizontal}{, }\item[{int}]{excluded\+Ship\+Id}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_game_utils_8cpp_a90bc854df7463e2c7b5937afb79e79a2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_game_utils_8cpp_ac96fb115a5c95ed86327fea80168495a}\index{GameUtils.cpp@{GameUtils.cpp}!DeleteSaveGame@{DeleteSaveGame}}
+\index{DeleteSaveGame@{DeleteSaveGame}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{DeleteSaveGame()}{DeleteSaveGame()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_ac96fb115a5c95ed86327fea80168495a} 
+void Delete\+Save\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8cpp_a1d5d7f0c802f5b7d246ce464bf41cabf}\index{GameUtils.cpp@{GameUtils.cpp}!DrawBattleshipBoard@{DrawBattleshipBoard}}
+\index{DrawBattleshipBoard@{DrawBattleshipBoard}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{DrawBattleshipBoard()}{DrawBattleshipBoard()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_a1d5d7f0c802f5b7d246ce464bf41cabf} 
+void Draw\+Battleship\+Board (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{board\+Data}{, }\item[{int}]{offsetX}{, }\item[{int}]{offsetY}{, }\item[{bool}]{show\+Ships}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8cpp_a3c1322f8e2feb79d4dbcb5f406f353cd}\index{GameUtils.cpp@{GameUtils.cpp}!DrawButton@{DrawButton}}
+\index{DrawButton@{DrawButton}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{DrawButton()}{DrawButton()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_a3c1322f8e2feb79d4dbcb5f406f353cd} 
+bool Draw\+Button (\begin{DoxyParamCaption}\item[{Rectangle}]{bounds}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{text}{, }\item[{Color}]{color}{, }\item[{Color}]{hover\+Color}{, }\item[{bool}]{enabled}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8cpp_a519936a0923f1d82a36edb285d7f6c0e}\index{GameUtils.cpp@{GameUtils.cpp}!DrawShipRect@{DrawShipRect}}
+\index{DrawShipRect@{DrawShipRect}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{DrawShipRect()}{DrawShipRect()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_a519936a0923f1d82a36edb285d7f6c0e} 
+void Draw\+Ship\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ship}{Ship}} \&}]{ship}{, }\item[{float}]{drawX}{, }\item[{float}]{drawY}{, }\item[{Color}]{color}{, }\item[{bool}]{is\+Horizontal}{, }\item[{int}]{cell\+Size}{, }\item[{bool}]{draw\+Outline}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{_game_utils_8cpp_a519936a0923f1d82a36edb285d7f6c0e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_game_utils_8cpp_a5c923c8e647eeace4bd2a457403a570e}\index{GameUtils.cpp@{GameUtils.cpp}!DrawShipVisual@{DrawShipVisual}}
+\index{DrawShipVisual@{DrawShipVisual}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{DrawShipVisual()}{DrawShipVisual()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_a5c923c8e647eeace4bd2a457403a570e} 
+void Draw\+Ship\+Visual (\begin{DoxyParamCaption}\item[{int}]{length}{, }\item[{float}]{drawX}{, }\item[{float}]{drawY}{, }\item[{Color}]{color}{, }\item[{bool}]{is\+Horizontal}{, }\item[{int}]{cell\+Size}{, }\item[{bool}]{draw\+Outline}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{_game_utils_8cpp_a5c923c8e647eeace4bd2a457403a570e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_game_utils_8cpp_a57dde5ccfa21c448ce731b1b3aa7182c}\index{GameUtils.cpp@{GameUtils.cpp}!LoadGame@{LoadGame}}
+\index{LoadGame@{LoadGame}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{LoadGame()}{LoadGame()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_a57dde5ccfa21c448ce731b1b3aa7182c} 
+bool Load\+Game (\begin{DoxyParamCaption}\item[{int \&}]{current\+Game\+State}{, }\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{player\+Board}{, }\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{ai\+Board}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_game_utils_8cpp_a6376f565fdcdd9f592453cd1dc2982d7}\index{GameUtils.cpp@{GameUtils.cpp}!SaveGame@{SaveGame}}
+\index{SaveGame@{SaveGame}!GameUtils.cpp@{GameUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{SaveGame()}{SaveGame()}}
+{\footnotesize\ttfamily \label{_game_utils_8cpp_a6376f565fdcdd9f592453cd1dc2982d7} 
+void Save\+Game (\begin{DoxyParamCaption}\item[{int}]{current\+Game\+State}{, }\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{player\+Board}{, }\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{ai\+Board}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_game_utils_8cpp_a6376f565fdcdd9f592453cd1dc2982d7_icgraph}
+\end{center}
+\end{figure}

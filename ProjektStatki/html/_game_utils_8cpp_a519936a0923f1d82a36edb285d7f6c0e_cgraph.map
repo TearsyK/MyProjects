@@ -1,0 +1,5 @@
+<map id="DrawShipRect" name="DrawShipRect">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,112,32"/>
+<area shape="rect" id="Node000002" href="$_game_utils_8cpp.html#a5c923c8e647eeace4bd2a457403a570e" title=" " alt="" coords="160,5,274,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,16,144,16,144,21,112,21"/>
+</map>

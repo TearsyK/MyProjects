@@ -1,0 +1,74 @@
+\doxysection{Game\+Session.\+h}
+\hypertarget{_game_session_8h_source}{}\label{_game_session_8h_source}\mbox{\hyperlink{_game_session_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UNTITLED7\_GAMESESSION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UNTITLED7\_GAMESESSION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}\ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ Raylib\ funkcji}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_board_8h}{GameBoard.h}}"{}}\ \ \textcolor{comment}{//\ Potrzebne\ dla\ GameBoard}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}\ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ Player\ (HumanPlayer,\ AIPlayer)}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_utils_8h}{GameUtils.h}}"{}}\ \ \textcolor{comment}{//\ Potrzebne\ dla\ funkcji\ pomocniczych\ (w\ tym\ globalnych\ stałych)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}\ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::unique\_ptr}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::vector}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ Stan\ gry}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_game_session_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{_game_session_8h_a7899b65f1ea0f655e4bbf8d2a5714285a1ffe14584858fba0fb59c4098ed9d30e}{MENU\_MAIN}},}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{_game_session_8h_a7899b65f1ea0f655e4bbf8d2a5714285a83d15ce98a5839ec86db2d3dfb23dfea}{PLACING\_SHIPS}},}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{_game_session_8h_a7899b65f1ea0f655e4bbf8d2a5714285a074bbf7a9f1fc57292380e29fb6323de}{PLAYER\_TURN}},}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{_game_session_8h_a7899b65f1ea0f655e4bbf8d2a5714285a0f1a5630eb1a99f88ff007128e3bd96d}{AI\_TURN}},}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{_game_session_8h_a7899b65f1ea0f655e4bbf8d2a5714285a871723195985a4ae22d7e10d99bf8a00}{GAME\_OVER}}}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_session_a28d51903f2230890d03ad0a0b316dcc4}{GameSession}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ std::unique\_ptr<HumanPlayer>\ player1;\ \textcolor{comment}{//\ Gracz\ 1\ (człowiek)}}
+\DoxyCodeLine{00024\ \ \ \ \ std::unique\_ptr<AIPlayer>\ playerAI;\ \ \ \textcolor{comment}{//\ Gracz\ AI}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{_game_session_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ currentGameState;\ \textcolor{comment}{//\ Aktualny\ stan\ gry}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ placingShipsStartTime;\ \textcolor{comment}{//\ Czas\ rozpoczęcia\ fazy\ rozmieszczania\ statków\ (dla\ symulacji)}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Drag\&Drop\ dla\ PLACING\_SHIPS\ -\/-\/-\/}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDraggingShip;}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{struct_ship}{Ship}}*\ currentDraggedShipPtr;}
+\DoxyCodeLine{00032\ \ \ \ \ Vector2\ dragOffset;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ currentDraggedShipHorizontal;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ currentDraggedShipPaletteIndex;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Zmienne\ używane\ do\ obracania\ oraz\ przemieszczania\ uwcześnie\ postawionych\ statków}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Uzywane\ to\ przechowywania\ oryginalnych\ pozycji\ statków\ jeżeli\ są\ przemieszczane}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ originalShipStartX;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ originalShipStartY;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ originalShipHorizontal;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Statki\ dostępne\ na\ palecie}}
+\DoxyCodeLine{00043\ \ \ \ \ std::vector<Ship>\ availableShipsPalette;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ nextShipId;\ \textcolor{comment}{//\ Zmienna\ pomocnicza,\ która\ upewnia\ się\ że\ każdy\ statek\ ma\ unikalne\ ID}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Prywatne\ metody\ -\/-\/-\/}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ InitializeShipPalette();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ ResetGame();\ \textcolor{comment}{//\ Reset\ stanu\ gry\ i\ planszy}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Prywatne\ metody\ sterujące\ aktualnym\ stanem\ gry}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateMenuMain();}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdatePlacingShips();}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdatePlayerTurn();}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateAITurn();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateGameOver();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Prywatne\ metody\ rysujące\ aktualny\ stan\ gry}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawMenuMain()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawPlacingShips()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawPlayerTurn()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawAITurn()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawGameOver()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_game_session_a28d51903f2230890d03ad0a0b316dcc4}{GameSession}}();\ \ \textcolor{comment}{//\ Konstruktor}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_session_ac3329e0fe90d9108df3fd2679bc02922}{Run}}();\ \ \ \ \ \textcolor{comment}{//\ Główna\ metoda\ uruchamiająca\ pętlę\ gry\ Raylib}}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ProjektStatki\_GAMESESSION\_H}}
+
+\end{DoxyCode}

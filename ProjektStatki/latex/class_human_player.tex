@@ -1,0 +1,118 @@
+\doxysection{Human\+Player Class Reference}
+\hypertarget{class_human_player}{}\label{class_human_player}\index{HumanPlayer@{HumanPlayer}}
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+
+
+Inheritance diagram for Human\+Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{class_human_player__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Human\+Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_human_player__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_human_player_a205cd7659bbeca6adaaeca9cccb4786e}{Human\+Player}} (int \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}}, const std\+::string \&\mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}}="{}Gracz"{})
+\item 
+void \mbox{\hyperlink{class_human_player_a6ce992de96ec5949aa1a34b275ffa129}{Initialize\+Ships}} (\mbox{\hyperlink{class_game_board}{Game\+Board}} \&board) override
+\item 
+bool \mbox{\hyperlink{class_human_player_a008c7e84dbb4692e99b22341b693b0fa}{Make\+Move}} (\mbox{\hyperlink{class_game_board}{Game\+Board}} \&enemy\+Board) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_player}{Player}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_a3810bdd56eddef6747ffeacda2816e94}{Player}} (int \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}}, const std\+::string \&\mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}})
+\item 
+virtual \mbox{\hyperlink{class_player_a11017c0ed8a639f3b1308ab167fbeca2}{\texorpdfstring{$\sim$}{\string~}\+Player}} ()=default
+\item 
+int \mbox{\hyperlink{class_player_ac1f339df6ac57bb0b1a226efc39ba80e}{Get\+Id}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_player_affddef50f994746a860e2366e412917f}{Get\+Name}} () const
+\item 
+\mbox{\hyperlink{class_game_board}{Game\+Board}} \& \mbox{\hyperlink{class_player_ac8516e66006e6519aa462de9060b1643}{Get\+Board}} ()
+\item 
+const \mbox{\hyperlink{class_game_board}{Game\+Board}} \& \mbox{\hyperlink{class_player_ad76c825448f9cec8efd8e008a29d936b}{Get\+Board}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_player}{Player}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}}
+\item 
+std\+::string \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}}
+\item 
+\mbox{\hyperlink{class_game_board}{Game\+Board}} \mbox{\hyperlink{class_player_a6639174fa61587eb474cec5de233d7e9}{player\+Board}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_human_player_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_human_player_a205cd7659bbeca6adaaeca9cccb4786e}\index{HumanPlayer@{HumanPlayer}!HumanPlayer@{HumanPlayer}}
+\index{HumanPlayer@{HumanPlayer}!HumanPlayer@{HumanPlayer}}
+\doxysubsubsection{\texorpdfstring{HumanPlayer()}{HumanPlayer()}}
+{\footnotesize\ttfamily \label{class_human_player_a205cd7659bbeca6adaaeca9cccb4786e} 
+Human\+Player\+::\+Human\+Player (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{const std\+::string \&}]{name}{ = {\ttfamily "{}Gracz"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{class_human_player_a205cd7659bbeca6adaaeca9cccb4786e_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{class_human_player_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_human_player_a6ce992de96ec5949aa1a34b275ffa129}\index{HumanPlayer@{HumanPlayer}!InitializeShips@{InitializeShips}}
+\index{InitializeShips@{InitializeShips}!HumanPlayer@{HumanPlayer}}
+\doxysubsubsection{\texorpdfstring{InitializeShips()}{InitializeShips()}}
+{\footnotesize\ttfamily \label{class_human_player_a6ce992de96ec5949aa1a34b275ffa129} 
+void Human\+Player\+::\+Initialize\+Ships (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{board}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_player_ac82c33b916880e714149e1eb048c4770}{Player}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_human_player_a6ce992de96ec5949aa1a34b275ffa129_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_human_player_a008c7e84dbb4692e99b22341b693b0fa}\index{HumanPlayer@{HumanPlayer}!MakeMove@{MakeMove}}
+\index{MakeMove@{MakeMove}!HumanPlayer@{HumanPlayer}}
+\doxysubsubsection{\texorpdfstring{MakeMove()}{MakeMove()}}
+{\footnotesize\ttfamily \label{class_human_player_a008c7e84dbb4692e99b22341b693b0fa} 
+bool Human\+Player\+::\+Make\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{enemy\+Board}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_player_a5b8cd5c60e91a5436d03b906d00a4e93}{Player}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

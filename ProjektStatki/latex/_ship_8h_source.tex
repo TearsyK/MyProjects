@@ -1,0 +1,35 @@
+\doxysection{Ship.\+h}
+\hypertarget{_ship_8h_source}{}\label{_ship_8h_source}\mbox{\hyperlink{_ship_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ProjektStatki\_SHIP\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ProjektStatki\_SHIP\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}\ \textcolor{comment}{//\ Potrzebne\ dla\ Vector2}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::vector}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Reprezentacja\ statku}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_ship_a74f928a6e7ce9c137e7e883859d839cf}{Ship}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_ship_a9ba352e476a88916a949bf0f7e53c8d6}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Unikalne\ ID\ statku}}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_ship_a09a66ecd75b1b2b96913161f0991c063}{length}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Długość\ statku\ (np.\ 2,\ 3,\ 4,\ 5)}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_ship_a1c53c735ca9960de12509dd6625d1c29}{hits}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Liczba\ trafień}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_ship_aaaabb82c07f6f1f8131aecbf0ce7cd06}{isSunk}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Czy\ statek\ został\ zatopiony}}
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<Vector2>\ \mbox{\hyperlink{struct_ship_a0b815226a91a3436f3c67612b8631808}{occupiedCells}};\ \textcolor{comment}{//\ Lista\ pól\ (x,\ y)\ zajmowanych\ przez\ statek}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_ship_a529eaa6185cf4ff892fdcf72c574723e}{isHorizontal}};\ \ \textcolor{comment}{//\ Orientacja\ statku\ (true\ =\ poziomo,\ false\ =\ pionowo)}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_ship_a20035b9f1f8ea7c07e502ce7f31ff0fd}{startX}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Współrzędna\ X\ lewego\ górnego\ rogu\ statku\ na\ planszy}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_ship_ad6a09bae74e2d4d6a9c60d0c859190b2}{startY}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Współrzędna\ Y\ lewego\ górnego\ rogu\ statku\ na\ planszy}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Domyślny\ konstruktor}}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_ship_a74f928a6e7ce9c137e7e883859d839cf}{Ship}}(\textcolor{keywordtype}{int}\ shipId\ =\ 0,\ \textcolor{keywordtype}{int}\ shipLength\ =\ 0,\ \textcolor{keywordtype}{int}\ sX\ =\ -\/1,\ \textcolor{keywordtype}{int}\ sY\ =\ -\/1,\ \textcolor{keywordtype}{bool}\ isHoriz\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_ship_a9ba352e476a88916a949bf0f7e53c8d6}{id}}(shipId),\ \mbox{\hyperlink{struct_ship_a09a66ecd75b1b2b96913161f0991c063}{length}}(shipLength),\ \mbox{\hyperlink{struct_ship_a1c53c735ca9960de12509dd6625d1c29}{hits}}(0),\ \mbox{\hyperlink{struct_ship_aaaabb82c07f6f1f8131aecbf0ce7cd06}{isSunk}}(false),\ \mbox{\hyperlink{struct_ship_a529eaa6185cf4ff892fdcf72c574723e}{isHorizontal}}(isHoriz),\ \mbox{\hyperlink{struct_ship_a20035b9f1f8ea7c07e502ce7f31ff0fd}{startX}}(sX),\ \mbox{\hyperlink{struct_ship_ad6a09bae74e2d4d6a9c60d0c859190b2}{startY}}(sY)\ \{\}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Metoda\ do\ sprawdzenia,\ czy\ statek\ jest\ zatopiony}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_ship_a300e7a0b80c5f6f007785afd386ad2c5}{CheckIfSunk}}()\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{struct_ship_a1c53c735ca9960de12509dd6625d1c29}{hits}}\ >=\ \mbox{\hyperlink{struct_ship_a09a66ecd75b1b2b96913161f0991c063}{length}})\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_ship_aaaabb82c07f6f1f8131aecbf0ce7cd06}{isSunk}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ProjektStatki\_SHIP\_H}}
+
+\end{DoxyCode}

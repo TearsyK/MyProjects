@@ -1,0 +1,21 @@
+# ninja log v6
+38	472	7677966484549502	CMakeFiles/Lab5Season3.dir/zad1Template.cpp.obj.ddi	91faf2b480fe7f79
+46	474	7677966484639531	CMakeFiles/Lab5Season3.dir/Zadanie3Template.cpp.obj.ddi	5f4e80ff35da0cc5
+43	475	7677966484599516	CMakeFiles/Lab5Season3.dir/Zadanie2Template.cpp.obj.ddi	4335ea796ebcc64b
+31	475	7677966484479492	CMakeFiles/Lab5Season3.dir/main.cpp.obj.ddi	7d82533940a16649
+476	571	7677966489840765	CMakeFiles/Lab5Season3.dir/CXX.dd	56451968789789d3
+476	571	7677966489840765	C:/Users/Xkacp/CLionProjects/Lab5Season3/cmake-build-debug/CMakeFiles/Lab5Season3.dir/CXXModules.json	56451968789789d3
+476	571	7677966489840765	CMakeFiles/Lab5Season3.dir/main.cpp.obj.modmap	56451968789789d3
+476	571	7677966489840765	CMakeFiles/Lab5Season3.dir/zad1Template.cpp.obj.modmap	56451968789789d3
+476	571	7677966489840765	CMakeFiles/Lab5Season3.dir/Zadanie2Template.cpp.obj.modmap	56451968789789d3
+476	571	7677966489840765	CMakeFiles/Lab5Season3.dir/Zadanie3Template.cpp.obj.modmap	56451968789789d3
+580	1633	7677966489980795	CMakeFiles/Lab5Season3.dir/main.cpp.obj	225a6eda79137d9e
+584	2817	7677966490010813	CMakeFiles/Lab5Season3.dir/zad1Template.cpp.obj	e057d5df7d75e909
+2	148	7677971537744959	CMakeFiles/Lab5Season3.dir/zad1Template.cpp.obj.ddi	91faf2b480fe7f79
+148	178	7677971539205293	CMakeFiles/Lab5Season3.dir/CXX.dd	56451968789789d3
+148	178	7677971539205293	C:/Users/Xkacp/CLionProjects/Lab5Season3/cmake-build-debug/CMakeFiles/Lab5Season3.dir/CXXModules.json	56451968789789d3
+148	178	7677971539205293	CMakeFiles/Lab5Season3.dir/main.cpp.obj.modmap	56451968789789d3
+148	178	7677971539205293	CMakeFiles/Lab5Season3.dir/zad1Template.cpp.obj.modmap	56451968789789d3
+148	178	7677971539205293	CMakeFiles/Lab5Season3.dir/Zadanie2Template.cpp.obj.modmap	56451968789789d3
+148	178	7677971539205293	CMakeFiles/Lab5Season3.dir/Zadanie3Template.cpp.obj.modmap	56451968789789d3
+179	1990	7677971539515361	CMakeFiles/Lab5Season3.dir/zad1Template.cpp.obj	e057d5df7d75e909

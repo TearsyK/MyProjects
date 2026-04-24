@@ -1,0 +1,22 @@
+\doxysection{Player\+Concept Concept Reference}
+\hypertarget{concept_player_concept}{}\label{concept_player_concept}\index{PlayerConcept@{PlayerConcept}}
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_player_concept}{PlayerConcept}}\ =\ \ \textcolor{keyword}{requires}(T\ player,\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ ownBoard,\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ enemyBoard,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{\ \ \ \ \{\ player.GetId()\ \}\ -\/>\ std::same\_as<int>;\ }
+\DoxyCodeLine{\ \ \ \ \{\ player.GetName()\ \}\ -\/>\ std::same\_as<std::string>;\ }
+\DoxyCodeLine{\ \ \ \ \{\ player.InitializeShips(ownBoard)\ \}\ -\/>\ std::same\_as<void>;\ }
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\ player.StartThinking(ownBoard,\ enemyBoard)\ \}\ -\/>\ std::same\_as<void>;}
+\DoxyCodeLine{\ \ \ \ \{\ player.IsThinking()\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \{\ player.GetAIMoveResult()\ \}\ -\/>\ std::same\_as<Vector2>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

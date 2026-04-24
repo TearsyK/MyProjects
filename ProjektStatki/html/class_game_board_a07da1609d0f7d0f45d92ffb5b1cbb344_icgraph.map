@@ -1,0 +1,5 @@
+<map id="GameBoard::PlaceShip" name="GameBoard::PlaceShip">
+<area shape="rect" id="Node000001" title=" " alt="" coords="214,5,371,32"/>
+<area shape="rect" id="Node000002" href="$class_a_i_player.html#a35c147bce988e5c362e38f195b9fb5eb" title=" " alt="" coords="5,5,166,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,21,166,21,166,16,198,16"/>
+</map>

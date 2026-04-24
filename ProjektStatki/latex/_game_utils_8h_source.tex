@@ -1,0 +1,87 @@
+\doxysection{Game\+Utils.\+h}
+\hypertarget{_game_utils_8h_source}{}\label{_game_utils_8h_source}\mbox{\hyperlink{_game_utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ProjektStatki\_GAMEUTILS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ProjektStatki\_GAMEUTILS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}\ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ Color,\ Rectangle,\ Vector2}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::string}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <filesystem>}\ \ \ \textcolor{comment}{//\ C++17\ File\ System}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}\ \ \ \ \ \ \textcolor{comment}{//\ Do\ operacji\ na\ plikach}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <regex>}\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nowe:\ Dodano\ do\ użycia\ std::regex}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Deklaracja\ wyprzedzająca\ dla\ klasy\ GameBoard\ i\ struktury\ Ship}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_board}{GameBoard}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_ship}{Ship}};\ \textcolor{comment}{//\ Potrzebne\ dla\ DrawShipRect\ i\ DrawShipVisual}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ -\/-\/-\/\ GLOBALNE\ DEFINICJE\ I\ STAŁE\ -\/-\/-\/}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Rozmiary\ ekranu}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_game_utils_8h_a7242fea9327c0747b47801c13f4e05c9}{screenWidth}}\ =\ 1200;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_game_utils_8h_a8897ff6127a397a8ee4ea76976f8534d}{screenHeight}}\ =\ 700;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Definicje\ rozmiaru\ planszy}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_game_utils_8h_aa7a2b8ea2c784a4ad8b58a3262bb4f07}{BOARD\_SIZE}}\ =\ 10;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Plansza\ 10x10}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_game_utils_8h_a3d75a3045c57e393b76a1760deb2533c}{CELL\_SIZE}}\ =\ 40;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rozmiar\ pojedynczego\ pola\ w\ pikselach}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\_PADDING}}\ =\ 20;\ \ \ \ \ \ \ \textcolor{comment}{//\ Odstęp\ od\ krawędzi\ okna}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Kolory}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_a332623cca513c23ea592d4285dd31afe}{WATER\_COLOR}}\ =\ SKYBLUE;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_a0defd4238a36bbfcc0b34417f0916fb6}{GRID\_LINE\_COLOR}}\ =\ DARKBLUE;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_a5ee174ec108abb1d9ac25a28cb62b78f}{HIT\_COLOR}}\ =\ RED;}
+\DoxyCodeLine{00028\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_a4a4fc59a46485c21039d229f7e8f1a5c}{MISS\_COLOR}}\ =\ LIGHTGRAY;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_a8d2b50883b5c62a45894d5c777e88b46}{SHIP\_COLOR}}\ =\ DARKGRAY;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_a2e3ca8b40ceb00194f4fef848d751d13}{SUNK\_SHIP\_COLOR}}\ =\ BLACK;}
+\DoxyCodeLine{00031\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_a3a396dd8aab01d707e785cd056664a7c}{BUTTON\_COLOR}}\ =\ LIGHTGRAY;}
+\DoxyCodeLine{00032\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_aef9c568b7cf736b32f7c2bddc190a4e7}{BUTTON\_HOVER\_COLOR}}\ =\ GRAY;}
+\DoxyCodeLine{00033\ \textcolor{keyword}{const}\ Color\ \mbox{\hyperlink{_game_utils_8h_ac17411e288c024f1545ff1867fc99c06}{TEXT\_COLOR}}\ =\ DARKBLUE;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ Funkcja\ rysująca\ planszę\ bitewną}}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_game_utils_8h_a1d5d7f0c802f5b7d246ce464bf41cabf}{DrawBattleshipBoard}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ boardData,\ \textcolor{keywordtype}{int}\ offsetX,\ \textcolor{keywordtype}{int}\ offsetY,\ \textcolor{keywordtype}{bool}\ showShips);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ Nowa\ funkcja\ do\ sprawdzania,\ czy\ statek\ może\ być\ umieszczony\ w\ danej\ pozycji}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Używana\ do\ walidacji\ ducha\ statku\ i\ podczas\ faktycznego\ umieszczania/obracania.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ excludedShipId:\ ID\ statku,\ który\ ma\ być\ ignorowany\ podczas\ sprawdzania\ kolizji\ (używane\ przy\ przemieszczaniu\ statku)}}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_game_utils_8h_a35abe2673efd668b931810ab2c02c65a}{CheckShipPlacementValidity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ board,\ \textcolor{keywordtype}{int}\ shipLength,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_ship_a20035b9f1f8ea7c07e502ce7f31ff0fd}{startX}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_ship_ad6a09bae74e2d4d6a9c60d0c859190b2}{startY}},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_ship_a529eaa6185cf4ff892fdcf72c574723e}{isHorizontal}},\ \textcolor{keywordtype}{int}\ excludedShipId\ =\ 0);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ Nowa\ funkcja\ pomocnicza\ do\ rysowania\ statku\ wizualnie\ (bez\ konkretnego\ obiektu\ Ship,\ tylko\ jego\ wymiarów)}}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_game_utils_8h_a481e2c3b52b0235430fe84ee1deb1337}{DrawShipVisual}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_ship_a09a66ecd75b1b2b96913161f0991c063}{length}},\ \textcolor{keywordtype}{float}\ drawX,\ \textcolor{keywordtype}{float}\ drawY,\ Color\ color,\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_ship_a529eaa6185cf4ff892fdcf72c574723e}{isHorizontal}},\ \textcolor{keywordtype}{int}\ cellSize,\ \textcolor{keywordtype}{bool}\ drawOutline\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ Funkcja\ pomocnicza\ do\ rysowania\ pojedynczego\ statku\ jako\ prostokąta}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ Ta\ funkcja\ będzie\ teraz\ korzystać\ z\ DrawShipVisual}}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_game_utils_8h_a012aa595ef98a3f72b60457c34634fd7}{DrawShipRect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_ship}{Ship}}\&\ ship,\ \textcolor{keywordtype}{float}\ drawX,\ \textcolor{keywordtype}{float}\ drawY,\ Color\ color,\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_ship_a529eaa6185cf4ff892fdcf72c574723e}{isHorizontal}},\ \textcolor{keywordtype}{int}\ cellSize,\ \textcolor{keywordtype}{bool}\ drawOutline\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ Funkcja\ pomocnicza\ do\ rysowania\ przycisku}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ Zwraca\ true,\ jeśli\ przycisk\ został\ kliknięty}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_game_utils_8h_ae1283992bd4ce57a08a26cb9ecbb26bc}{DrawButton}}(Rectangle\ bounds,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ text,\ Color\ color,\ Color\ hoverColor,\ \textcolor{keywordtype}{bool}\ enabled\ =\ \textcolor{keyword}{true});\ \textcolor{comment}{//\ Dodano\ parametr\ enabled}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ -\/-\/-\/\ Funkcje\ do\ zapisu\ i\ wczytywania\ gry\ (FileSystem)\ -\/-\/-\/}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ Ścieżka\ do\ pliku\ zapisu}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{_game_utils_8h_a91614265ede4d0df0eb2a22a32e7ddeb}{SAVE\_FILE\_PATH}}\ =\ \textcolor{stringliteral}{"{}battleship\_save.txt"{}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ Funkcja\ do\ sprawdzenia,\ czy\ plik\ zapisu\ istnieje}}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_game_utils_8h_a2b476282d2ba0a9bd6319a2ed7e84102}{CheckSaveFileExists}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ Funkcja\ do\ zapisu\ gry}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ currentGameState:\ aktualny\ stan\ gry}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ playerBoard:\ plansza\ gracza\ do\ zapisu}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ aiBoard:\ plansza\ AI\ do\ zapisu}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ Zapisuje\ pełny\ stan\ plansz\ i\ statków}}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_game_utils_8h_a6376f565fdcdd9f592453cd1dc2982d7}{SaveGame}}(\textcolor{keywordtype}{int}\ currentGameState,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ playerBoard,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ aiBoard);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ Funkcja\ do\ wczytywania\ gry}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ currentGameState:\ referencja\ do\ zmiennej,\ do\ której\ zostanie\ wczytany\ stan\ gry}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ playerBoard:\ referencja\ do\ planszy\ gracza,\ do\ której\ zostaną\ wczytane\ dane}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//\ aiBoard:\ referencja\ do\ planszy\ AI,\ do\ której\ zostaną\ wczytane\ dane}}
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ Zwraca\ true,\ jeśli\ wczytano\ poprawnie,\ false\ w\ przeciwnym\ wypadku}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//\ Wczytuje\ pełny\ stan\ plansz\ i\ statków}}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_game_utils_8h_a57dde5ccfa21c448ce731b1b3aa7182c}{LoadGame}}(\textcolor{keywordtype}{int}\&\ currentGameState,\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ playerBoard,\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ aiBoard);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ Funkcja\ do\ usuwania\ pliku\ zapisu}}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_game_utils_8h_ac96fb115a5c95ed86327fea80168495a}{DeleteSaveGame}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ProjektStatki\_GAMEUTILS\_H}}
+
+\end{DoxyCode}

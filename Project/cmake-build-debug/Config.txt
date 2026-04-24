@@ -1,0 +1,3 @@
+Maszyna kok 2 1 10 20
+Surowiec kok1 6000
+Produkt kok2 2313

@@ -1,0 +1,112 @@
+\doxysection{Ship Struct Reference}
+\hypertarget{struct_ship}{}\label{struct_ship}\index{Ship@{Ship}}
+
+
+{\ttfamily \#include $<$Ship.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_ship_a74f928a6e7ce9c137e7e883859d839cf}{Ship}} (int ship\+Id=0, int ship\+Length=0, int sX=-\/1, int sY=-\/1, bool is\+Horiz=true)
+\item 
+void \mbox{\hyperlink{struct_ship_a300e7a0b80c5f6f007785afd386ad2c5}{Check\+If\+Sunk}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_ship_a9ba352e476a88916a949bf0f7e53c8d6}{id}}
+\item 
+int \mbox{\hyperlink{struct_ship_a09a66ecd75b1b2b96913161f0991c063}{length}}
+\item 
+int \mbox{\hyperlink{struct_ship_a1c53c735ca9960de12509dd6625d1c29}{hits}}
+\item 
+bool \mbox{\hyperlink{struct_ship_aaaabb82c07f6f1f8131aecbf0ce7cd06}{is\+Sunk}}
+\item 
+std\+::vector$<$ Vector2 $>$ \mbox{\hyperlink{struct_ship_a0b815226a91a3436f3c67612b8631808}{occupied\+Cells}}
+\item 
+bool \mbox{\hyperlink{struct_ship_a529eaa6185cf4ff892fdcf72c574723e}{is\+Horizontal}}
+\item 
+int \mbox{\hyperlink{struct_ship_a20035b9f1f8ea7c07e502ce7f31ff0fd}{startX}}
+\item 
+int \mbox{\hyperlink{struct_ship_ad6a09bae74e2d4d6a9c60d0c859190b2}{startY}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{struct_ship_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_ship_a74f928a6e7ce9c137e7e883859d839cf}\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Ship()}{Ship()}}
+{\footnotesize\ttfamily \label{struct_ship_a74f928a6e7ce9c137e7e883859d839cf} 
+Ship\+::\+Ship (\begin{DoxyParamCaption}\item[{int}]{ship\+Id}{ = {\ttfamily 0}, }\item[{int}]{ship\+Length}{ = {\ttfamily 0}, }\item[{int}]{sX}{ = {\ttfamily -\/1}, }\item[{int}]{sY}{ = {\ttfamily -\/1}, }\item[{bool}]{is\+Horiz}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{struct_ship_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_ship_a300e7a0b80c5f6f007785afd386ad2c5}\index{Ship@{Ship}!CheckIfSunk@{CheckIfSunk}}
+\index{CheckIfSunk@{CheckIfSunk}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{CheckIfSunk()}{CheckIfSunk()}}
+{\footnotesize\ttfamily \label{struct_ship_a300e7a0b80c5f6f007785afd386ad2c5} 
+void Ship\+::\+Check\+If\+Sunk (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_ship_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_ship_a1c53c735ca9960de12509dd6625d1c29}\index{Ship@{Ship}!hits@{hits}}
+\index{hits@{hits}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{hits}{hits}}
+{\footnotesize\ttfamily \label{struct_ship_a1c53c735ca9960de12509dd6625d1c29} 
+int Ship\+::hits}
+
+\Hypertarget{struct_ship_a9ba352e476a88916a949bf0f7e53c8d6}\index{Ship@{Ship}!id@{id}}
+\index{id@{id}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{struct_ship_a9ba352e476a88916a949bf0f7e53c8d6} 
+int Ship\+::id}
+
+\Hypertarget{struct_ship_a529eaa6185cf4ff892fdcf72c574723e}\index{Ship@{Ship}!isHorizontal@{isHorizontal}}
+\index{isHorizontal@{isHorizontal}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{isHorizontal}{isHorizontal}}
+{\footnotesize\ttfamily \label{struct_ship_a529eaa6185cf4ff892fdcf72c574723e} 
+bool Ship\+::is\+Horizontal}
+
+\Hypertarget{struct_ship_aaaabb82c07f6f1f8131aecbf0ce7cd06}\index{Ship@{Ship}!isSunk@{isSunk}}
+\index{isSunk@{isSunk}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{isSunk}{isSunk}}
+{\footnotesize\ttfamily \label{struct_ship_aaaabb82c07f6f1f8131aecbf0ce7cd06} 
+bool Ship\+::is\+Sunk}
+
+\Hypertarget{struct_ship_a09a66ecd75b1b2b96913161f0991c063}\index{Ship@{Ship}!length@{length}}
+\index{length@{length}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily \label{struct_ship_a09a66ecd75b1b2b96913161f0991c063} 
+int Ship\+::length}
+
+\Hypertarget{struct_ship_a0b815226a91a3436f3c67612b8631808}\index{Ship@{Ship}!occupiedCells@{occupiedCells}}
+\index{occupiedCells@{occupiedCells}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{occupiedCells}{occupiedCells}}
+{\footnotesize\ttfamily \label{struct_ship_a0b815226a91a3436f3c67612b8631808} 
+std\+::vector$<$Vector2$>$ Ship\+::occupied\+Cells}
+
+\Hypertarget{struct_ship_a20035b9f1f8ea7c07e502ce7f31ff0fd}\index{Ship@{Ship}!startX@{startX}}
+\index{startX@{startX}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{startX}{startX}}
+{\footnotesize\ttfamily \label{struct_ship_a20035b9f1f8ea7c07e502ce7f31ff0fd} 
+int Ship\+::startX}
+
+\Hypertarget{struct_ship_ad6a09bae74e2d4d6a9c60d0c859190b2}\index{Ship@{Ship}!startY@{startY}}
+\index{startY@{startY}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{startY}{startY}}
+{\footnotesize\ttfamily \label{struct_ship_ad6a09bae74e2d4d6a9c60d0c859190b2} 
+int Ship\+::startY}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_ship_8h}{Ship.\+h}}\end{DoxyCompactItemize}

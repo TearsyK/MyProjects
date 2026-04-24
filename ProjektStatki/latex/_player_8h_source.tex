@@ -1,0 +1,101 @@
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ProjektStatki\_PLAYER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ProjektStatki\_PLAYER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_board_8h}{GameBoard.h}}"{}}\ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ GameBoard}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::string}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::vector}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <thread>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::thread}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <future>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::future}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <chrono>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::chrono\ (opóźnienia)}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <concepts>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ C++20\ Concepts}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Koncept:\ PlayerConcept}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Definiuje\ wymagania\ dla\ dowolnej\ klasy,\ która\ ma\ być\ traktowana\ jako\ "{}gracz"{}}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00016\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_player_concept}{PlayerConcept}}\ =\ \textcolor{keyword}{requires}(T\ player,\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ ownBoard,\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ enemyBoard,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \{\ player.GetId()\ \}\ -\/>\ std::same\_as<int>;\ \textcolor{comment}{//\ Musi\ mieć\ metodę\ GetId\ zwracającą\ int}}
+\DoxyCodeLine{00018\ \ \ \ \ \{\ player.GetName()\ \}\ -\/>\ std::same\_as<std::string>;\ \textcolor{comment}{//\ Musi\ mieć\ metodę\ GetName\ zwracającą\ std::string}}
+\DoxyCodeLine{00019\ \ \ \ \ \{\ player.InitializeShips(ownBoard)\ \}\ -\/>\ std::same\_as<void>;\ \textcolor{comment}{//\ Metoda\ do\ inicjalizacji\ statków}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ MakeMove\ może\ być\ asynchroniczne,\ więc\ niekoniecznie\ zwraca\ bool\ natychmiast}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ \{\ player.MakeMove(enemyBoard)\ \}\ -\/>\ std::same\_as<bool>;}}
+\DoxyCodeLine{00022\ \ \ \ \ \{\ player.StartThinking(ownBoard,\ enemyBoard)\ \}\ -\/>\ std::same\_as<void>;}
+\DoxyCodeLine{00023\ \ \ \ \ \{\ player.IsThinking()\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{00024\ \ \ \ \ \{\ player.GetAIMoveResult()\ \}\ -\/>\ std::same\_as<Vector2>;}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Abstrakcyjna\ klasa\ bazowa\ dla\ graczy}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player_a3810bdd56eddef6747ffeacda2816e94}{Player}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}};}
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}};}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_game_board}{GameBoard}}\ \mbox{\hyperlink{class_player_a6639174fa61587eb474cec5de233d7e9}{playerBoard}};\ \textcolor{comment}{//\ Każdy\ gracz\ ma\ swoją\ planszę}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_player_a3810bdd56eddef6747ffeacda2816e94}{Player}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}})\ :\ \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}}(\mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}}),\ \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}}(\mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}})\ \{\}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_player_a11017c0ed8a639f3b1308ab167fbeca2}{\string~Player}}()\ =\ \textcolor{keywordflow}{default};\ \textcolor{comment}{//\ Wirtualny\ destruktor\ dla\ polimorfizmu}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_ac1f339df6ac57bb0b1a226efc39ba80e}{GetId}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}};\ \}}
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ \mbox{\hyperlink{class_player_affddef50f994746a860e2366e412917f}{GetName}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}};\ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ \mbox{\hyperlink{class_player_ac8516e66006e6519aa462de9060b1643}{GetBoard}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_player_a6639174fa61587eb474cec5de233d7e9}{playerBoard}};\ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ \mbox{\hyperlink{class_player_ad76c825448f9cec8efd8e008a29d936b}{GetBoard}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_player_a6639174fa61587eb474cec5de233d7e9}{playerBoard}};\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Metoda\ czysto\ wirtualna\ do\ inicjalizacji\ statków\ (implementacja\ w\ klasach\ pochodnych)}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ac82c33b916880e714149e1eb048c4770}{InitializeShips}}(\mbox{\hyperlink{class_game_board}{GameBoard}}\&\ board)\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ Metoda\ czysto\ wirtualna\ do\ wykonania\ ruchu\ (implementacja\ w\ klasach\ pochodnych)}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Zwraca\ true,\ jeśli\ ruch\ zakończył\ się\ trafieniem,\ false\ jeśli\ pudłem}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a5b8cd5c60e91a5436d03b906d00a4e93}{MakeMove}}(\mbox{\hyperlink{class_game_board}{GameBoard}}\&\ enemyBoard)\ =\ 0;}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ Klasa\ reprezentująca\ gracza-\/człowieka}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_human_player_a205cd7659bbeca6adaaeca9cccb4786e}{HumanPlayer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_player_a3810bdd56eddef6747ffeacda2816e94}{Player}}\ \{}
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_human_player_a205cd7659bbeca6adaaeca9cccb4786e}{HumanPlayer}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}}\ =\ \textcolor{stringliteral}{"{}Gracz"{}})\ :\ \mbox{\hyperlink{class_player_a3810bdd56eddef6747ffeacda2816e94}{Player}}(\mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}},\ \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}})\ \{\}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Implementacja\ inicjalizacji\ statków\ dla\ gracza-\/człowieka}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ W\ Raylib\ będzie\ to\ interaktywny\ proces\ drag\&drop}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_human_player_a6ce992de96ec5949aa1a34b275ffa129}{InitializeShips}}(\mbox{\hyperlink{class_game_board}{GameBoard}}\&\ board)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Implementacja\ wykonania\ ruchu\ dla\ gracza-\/człowieka}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Czeka\ na\ kliknięcie\ gracza\ na\ planszy\ przeciwnika}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_human_player_a008c7e84dbb4692e99b22341b693b0fa}{MakeMove}}(\mbox{\hyperlink{class_game_board}{GameBoard}}\&\ enemyBoard)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ Klasa\ reprezentująca\ gracza\ komputerowego\ (AI)}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_a_i_player_a5adbc0c6afb721e7ea1ea755098bc89a}{AIPlayer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_player_a3810bdd56eddef6747ffeacda2816e94}{Player}}\ \{}
+\DoxyCodeLine{00068\ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ Zmiana\ na\ public\ dla\ dostępu\ z\ GameSession.cpp}}
+\DoxyCodeLine{00069\ \ \ \ \ std::future<Vector2>\ \mbox{\hyperlink{class_a_i_player_af4c841a7179a7e28d9ea4fce99db49fd}{aiMoveFuture}};\ \textcolor{comment}{//\ Obiekt\ do\ odbierania\ wyniku\ z\ wątku\ AI}}
+\DoxyCodeLine{00070\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ aiThinking;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Flaga\ informująca,\ czy\ AI\ myśli}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Wewnętrzna\ metoda\ do\ obliczania\ ruchu\ AI\ (wykonywana\ w\ wątku)}}
+\DoxyCodeLine{00074\ \ \ \ \ Vector2\ ComputeAIMoveInternal(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ ownBoard,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ enemyBoard);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_a_i_player_a5adbc0c6afb721e7ea1ea755098bc89a}{AIPlayer}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}}\ =\ \textcolor{stringliteral}{"{}Komputer"{}})\ :\ \mbox{\hyperlink{class_player_a3810bdd56eddef6747ffeacda2816e94}{Player}}(\mbox{\hyperlink{class_player_a05e05f3a23de78da7ec032ec2bcf8c6c}{id}},\ \mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}}),\ aiThinking(false)\ \{\}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ Implementacja\ inicjalizacji\ statków\ dla\ AI\ (np.\ losowe\ rozmieszczenie)}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_i_player_a35c147bce988e5c362e38f195b9fb5eb}{InitializeShips}}(\mbox{\hyperlink{class_game_board}{GameBoard}}\&\ board)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Metoda\ rozpoczynająca\ obliczanie\ ruchu\ AI\ w\ osobnym\ wątku}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_i_player_a9187a1d6a1a9eba432b0d7c5b22843e2}{StartThinking}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ ownBoard,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_board}{GameBoard}}\&\ enemyBoard);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Metoda\ sprawdzająca,\ czy\ AI\ nadal\ myśli}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_a_i_player_a506b70899a29237b5cb23b640385ef70}{IsThinking}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ aiThinking;\ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ Metoda\ pobierająca\ wynik\ ruchu\ AI\ (blokuje,\ jeśli\ wątek\ jeszcze\ nie\ zakończył)}}
+\DoxyCodeLine{00089\ \ \ \ \ Vector2\ \mbox{\hyperlink{class_a_i_player_ab6c0aff8c31a318636ef37b859cb3529}{GetAIMoveResult}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ Implementacja\ wykonania\ ruchu\ dla\ AI\ (zarządza\ wątkiem)}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_a_i_player_a97375fb4f0a7a26940c44c2506f21eea}{MakeMove}}(\mbox{\hyperlink{class_game_board}{GameBoard}}\&\ enemyBoard)\ \textcolor{keyword}{override};\ \textcolor{comment}{//\ Ta\ metoda\ będzie\ zarządzać\ wątkiem\ i\ aplikować\ ruch}}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ProjektStatki\_PLAYER\_H}}
+
+\end{DoxyCode}

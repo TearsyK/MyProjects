@@ -1,0 +1,18 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "MSVC",
+	"compiler-id" : "MSVC",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "C:/Users/Xkacp/CLionProjects/Lab3Season3/cmake-build-debug",
+	"dir-cur-src" : "C:/Users/Xkacp/CLionProjects/Lab3Season3",
+	"dir-top-bld" : "C:/Users/Xkacp/CLionProjects/Lab3Season3/cmake-build-debug",
+	"dir-top-src" : "C:/Users/Xkacp/CLionProjects/Lab3Season3",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Users/Xkacp/CLionProjects/Lab3Season3/cmake-build-debug/CMakeFiles/Lab3Season3.dir"
+}

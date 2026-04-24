@@ -1,0 +1,12 @@
+# ninja log v6
+2	256	7399238694668935	build.ninja	750039b78b9cc060
+5	2320	7399237731638273	CMakeFiles/untitled.dir/main.cpp.obj	e0674f77c30a212c
+9	389	7399237731678280	CMakeFiles/untitled.dir/efekty.cpp.obj	b8ec2ca30e7a8ebb
+25	474	7399227089352687	CMakeFiles/untitled.dir/formaplat.cpp.obj	3f26dd4e6516c45f
+15	857	7399227756564527	CMakeFiles/untitled.dir/walidator.cpp.obj	969da0c57a6921ec
+2320	3472	7399237754792388	untitled.exe	f3c8571954cb1758
+18	446	7399238739920345	CMakeFiles/untitled.dir/efekty.cpp.obj	8040dd44cb6ad58b
+24	473	7399238739980348	CMakeFiles/untitled.dir/formaplat.cpp.obj	be84f332fb3fb469
+21	970	7399238739950342	CMakeFiles/untitled.dir/walidator.cpp.obj	ecf42393000d0bf2
+14	2357	7399238739870326	CMakeFiles/untitled.dir/main.cpp.obj	413c516feea85239
+2359	3522	7399238763327839	untitled.exe	f3c8571954cb1758

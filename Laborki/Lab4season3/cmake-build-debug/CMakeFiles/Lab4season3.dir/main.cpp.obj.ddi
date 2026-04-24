@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\Lab4season3.dir\\main.cpp.obj",
+            "outputs": [
+                "C:\\Users\\Xkacp\\CLionProjects\\Lab4season3\\cmake-build-debug\\vc140.pdb",
+                "CMakeFiles\\Lab4season3.dir\\main.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

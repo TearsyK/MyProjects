@@ -1,0 +1,90 @@
+\doxysection{Game\+Session.\+cpp File Reference}
+\hypertarget{_game_session_8cpp}{}\label{_game_session_8cpp}\index{GameSession.cpp@{GameSession.cpp}}
+{\ttfamily \#include "{}Game\+Session.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include "{}Game\+Utils.\+h"{}}\newline
+Include dependency graph for Game\+Session.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_game_session_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{_game_session_8cpp_ad3775aa39748588fa9c390282dfb3791}{BOARD\+\_\+\+DRAW\+\_\+\+OFFSET\+\_\+\+X\+\_\+\+PLAYER}} = \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}}
+\item 
+const int \mbox{\hyperlink{_game_session_8cpp_a500da79b9498e57d567fd72766af15b7}{BOARD\+\_\+\+DRAW\+\_\+\+OFFSET\+\_\+\+Y\+\_\+\+PLAYER}} = \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}}
+\item 
+const int \mbox{\hyperlink{_game_session_8cpp_a2c95bbbf9801bcbb82eee4df4ac18ff6}{BOARD\+\_\+\+DRAW\+\_\+\+OFFSET\+\_\+\+X\+\_\+\+AI}} = \mbox{\hyperlink{_game_utils_8h_a7242fea9327c0747b47801c13f4e05c9}{screen\+Width}} / 2 + \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}}
+\item 
+const int \mbox{\hyperlink{_game_session_8cpp_a822d73489e781e39f8defd415dd4ae92}{BOARD\+\_\+\+DRAW\+\_\+\+OFFSET\+\_\+\+Y\+\_\+\+AI}} = \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}}
+\item 
+const int \mbox{\hyperlink{_game_session_8cpp_a25c641f3d6d5d1fc55f6007856224d45}{PALETTE\+\_\+X}} = \mbox{\hyperlink{_game_utils_8h_a7242fea9327c0747b47801c13f4e05c9}{screen\+Width}} -\/ 200
+\item 
+const int \mbox{\hyperlink{_game_session_8cpp_a0a57026a5940510cb99cad1c751f9373}{PALETTE\+\_\+Y}} = 50
+\item 
+const int \mbox{\hyperlink{_game_session_8cpp_aceac9fc2f8331605746596f5cb646369}{PALETTE\+\_\+\+WIDTH}} = 180
+\item 
+const int \mbox{\hyperlink{_game_session_8cpp_aa882f594153b965747a0af57972e05f3}{PALETTE\+\_\+\+SHIP\+\_\+\+SPACING}} = 10
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{_game_session_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_game_session_8cpp_a2c95bbbf9801bcbb82eee4df4ac18ff6}\index{GameSession.cpp@{GameSession.cpp}!BOARD\_DRAW\_OFFSET\_X\_AI@{BOARD\_DRAW\_OFFSET\_X\_AI}}
+\index{BOARD\_DRAW\_OFFSET\_X\_AI@{BOARD\_DRAW\_OFFSET\_X\_AI}!GameSession.cpp@{GameSession.cpp}}
+\doxysubsubsection{\texorpdfstring{BOARD\_DRAW\_OFFSET\_X\_AI}{BOARD\_DRAW\_OFFSET\_X\_AI}}
+{\footnotesize\ttfamily \label{_game_session_8cpp_a2c95bbbf9801bcbb82eee4df4ac18ff6} 
+const int BOARD\+\_\+\+DRAW\+\_\+\+OFFSET\+\_\+\+X\+\_\+\+AI = \mbox{\hyperlink{_game_utils_8h_a7242fea9327c0747b47801c13f4e05c9}{screen\+Width}} / 2 + \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}}}
+
+\Hypertarget{_game_session_8cpp_ad3775aa39748588fa9c390282dfb3791}\index{GameSession.cpp@{GameSession.cpp}!BOARD\_DRAW\_OFFSET\_X\_PLAYER@{BOARD\_DRAW\_OFFSET\_X\_PLAYER}}
+\index{BOARD\_DRAW\_OFFSET\_X\_PLAYER@{BOARD\_DRAW\_OFFSET\_X\_PLAYER}!GameSession.cpp@{GameSession.cpp}}
+\doxysubsubsection{\texorpdfstring{BOARD\_DRAW\_OFFSET\_X\_PLAYER}{BOARD\_DRAW\_OFFSET\_X\_PLAYER}}
+{\footnotesize\ttfamily \label{_game_session_8cpp_ad3775aa39748588fa9c390282dfb3791} 
+const int BOARD\+\_\+\+DRAW\+\_\+\+OFFSET\+\_\+\+X\+\_\+\+PLAYER = \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}}}
+
+\Hypertarget{_game_session_8cpp_a822d73489e781e39f8defd415dd4ae92}\index{GameSession.cpp@{GameSession.cpp}!BOARD\_DRAW\_OFFSET\_Y\_AI@{BOARD\_DRAW\_OFFSET\_Y\_AI}}
+\index{BOARD\_DRAW\_OFFSET\_Y\_AI@{BOARD\_DRAW\_OFFSET\_Y\_AI}!GameSession.cpp@{GameSession.cpp}}
+\doxysubsubsection{\texorpdfstring{BOARD\_DRAW\_OFFSET\_Y\_AI}{BOARD\_DRAW\_OFFSET\_Y\_AI}}
+{\footnotesize\ttfamily \label{_game_session_8cpp_a822d73489e781e39f8defd415dd4ae92} 
+const int BOARD\+\_\+\+DRAW\+\_\+\+OFFSET\+\_\+\+Y\+\_\+\+AI = \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}}}
+
+\Hypertarget{_game_session_8cpp_a500da79b9498e57d567fd72766af15b7}\index{GameSession.cpp@{GameSession.cpp}!BOARD\_DRAW\_OFFSET\_Y\_PLAYER@{BOARD\_DRAW\_OFFSET\_Y\_PLAYER}}
+\index{BOARD\_DRAW\_OFFSET\_Y\_PLAYER@{BOARD\_DRAW\_OFFSET\_Y\_PLAYER}!GameSession.cpp@{GameSession.cpp}}
+\doxysubsubsection{\texorpdfstring{BOARD\_DRAW\_OFFSET\_Y\_PLAYER}{BOARD\_DRAW\_OFFSET\_Y\_PLAYER}}
+{\footnotesize\ttfamily \label{_game_session_8cpp_a500da79b9498e57d567fd72766af15b7} 
+const int BOARD\+\_\+\+DRAW\+\_\+\+OFFSET\+\_\+\+Y\+\_\+\+PLAYER = \mbox{\hyperlink{_game_utils_8h_a50244aaed4a3d499871a369a72aa972c}{BOARD\+\_\+\+PADDING}}}
+
+\Hypertarget{_game_session_8cpp_aa882f594153b965747a0af57972e05f3}\index{GameSession.cpp@{GameSession.cpp}!PALETTE\_SHIP\_SPACING@{PALETTE\_SHIP\_SPACING}}
+\index{PALETTE\_SHIP\_SPACING@{PALETTE\_SHIP\_SPACING}!GameSession.cpp@{GameSession.cpp}}
+\doxysubsubsection{\texorpdfstring{PALETTE\_SHIP\_SPACING}{PALETTE\_SHIP\_SPACING}}
+{\footnotesize\ttfamily \label{_game_session_8cpp_aa882f594153b965747a0af57972e05f3} 
+const int PALETTE\+\_\+\+SHIP\+\_\+\+SPACING = 10}
+
+\Hypertarget{_game_session_8cpp_aceac9fc2f8331605746596f5cb646369}\index{GameSession.cpp@{GameSession.cpp}!PALETTE\_WIDTH@{PALETTE\_WIDTH}}
+\index{PALETTE\_WIDTH@{PALETTE\_WIDTH}!GameSession.cpp@{GameSession.cpp}}
+\doxysubsubsection{\texorpdfstring{PALETTE\_WIDTH}{PALETTE\_WIDTH}}
+{\footnotesize\ttfamily \label{_game_session_8cpp_aceac9fc2f8331605746596f5cb646369} 
+const int PALETTE\+\_\+\+WIDTH = 180}
+
+\Hypertarget{_game_session_8cpp_a25c641f3d6d5d1fc55f6007856224d45}\index{GameSession.cpp@{GameSession.cpp}!PALETTE\_X@{PALETTE\_X}}
+\index{PALETTE\_X@{PALETTE\_X}!GameSession.cpp@{GameSession.cpp}}
+\doxysubsubsection{\texorpdfstring{PALETTE\_X}{PALETTE\_X}}
+{\footnotesize\ttfamily \label{_game_session_8cpp_a25c641f3d6d5d1fc55f6007856224d45} 
+const int PALETTE\+\_\+X = \mbox{\hyperlink{_game_utils_8h_a7242fea9327c0747b47801c13f4e05c9}{screen\+Width}} -\/ 200}
+
+\Hypertarget{_game_session_8cpp_a0a57026a5940510cb99cad1c751f9373}\index{GameSession.cpp@{GameSession.cpp}!PALETTE\_Y@{PALETTE\_Y}}
+\index{PALETTE\_Y@{PALETTE\_Y}!GameSession.cpp@{GameSession.cpp}}
+\doxysubsubsection{\texorpdfstring{PALETTE\_Y}{PALETTE\_Y}}
+{\footnotesize\ttfamily \label{_game_session_8cpp_a0a57026a5940510cb99cad1c751f9373} 
+const int PALETTE\+\_\+Y = 50}
+

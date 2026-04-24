@@ -1,0 +1,5 @@
+<map id="Player" name="Player">
+<area shape="rect" id="Node000001" title=" " alt="" coords="21,104,80,131"/>
+<area shape="rect" id="Node000002" href="$class_game_board.html" title=" " alt="" coords="5,5,96,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,48,53,104,48,104,48,48"/>
+</map>

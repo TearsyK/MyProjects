@@ -1,0 +1,55 @@
+\doxysection{Game\+Board.\+h}
+\hypertarget{_game_board_8h_source}{}\label{_game_board_8h_source}\mbox{\hyperlink{_game_board_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xkacp\ on\ 14.06.2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ ProjektStatki\_GAMEBOARD\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ ProjektStatki\_GAMEBOARD\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}\ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ Color}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_cell_8h}{Cell.h}}"{}}\ \ \ \ \ \ \ \textcolor{comment}{//\ Dołączamy\ definicję\ Cell}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_ship_8h}{Ship.h}}"{}}\ \ \ \ \ \ \ \textcolor{comment}{//\ Dołączamy\ definicję\ Ship}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::vector}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}\ \ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::cerr,\ std::cout}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \ \ \ \textcolor{comment}{//\ Potrzebne\ dla\ std::all\_of\ (do\ Ranges)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_utils_8h}{GameUtils.h}}"{}}\ \ \textcolor{comment}{//\ Dołączamy\ GameUtils.h,\ aby\ uzyskać\ dostęp\ do\ BOARD\_SIZE\ i\ CELL\_SIZE}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}{GameBoard}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Dwuwymiarowa\ tablica\ pól\ reprezentująca\ planszę}}
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<std::vector<Cell>>\ \mbox{\hyperlink{class_game_board_ae452f28277df464c3147833fea668e6b}{board}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Lista\ statków\ na\ tej\ planszy}}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<Ship>\ \mbox{\hyperlink{class_game_board_adbeaac3eb62ac2a196e29d55ba956051}{ships}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}{GameBoard}}();\ \textcolor{comment}{//\ Konstruktor}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_board_a903331f76329356e09fd6c76a4e87c62}{Reset}}();\ \textcolor{comment}{//\ Resetuje\ stan\ planszy\ i\ statków}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Metoda\ do\ umieszczania\ statku\ na\ planszy\ z\ walidacją}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Zwraca\ true\ jeśli\ umieszczenie\ udane,\ false\ w\ przeciwnym\ wypadku}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_board_a07da1609d0f7d0f45d92ffb5b1cbb344}{PlaceShip}}(\mbox{\hyperlink{struct_ship}{Ship}}\ newShip,\ \textcolor{keywordtype}{int}\ startX,\ \textcolor{keywordtype}{int}\ startY,\ \textcolor{keywordtype}{bool}\ isHorizontal);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Metoda\ do\ obsługi\ strzału\ na\ planszy}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Zwraca\ true\ jeśli\ trafiono\ statek,\ false\ jeśli\ pudło}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_board_aa2d70909409f4d7fff274710697fb2d5}{ReceiveShot}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Metoda\ do\ sprawdzenia,\ czy\ wszystkie\ statki\ na\ planszy\ zostały\ zatopione}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Wykorzystuje\ std::ranges\ (C++20)}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_board_ab6c384e3f4b248fa3a3a39ebc816cf46}{AreAllShipsSunk}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Funkcja\ do\ rysowania\ planszy}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ To\ jest\ funkcja\ pomocnicza,\ która\ może\ być\ częścią\ GameBoard\ lub\ osobną\ funkcją}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ Dla\ prostoty,\ na\ razie\ zostanie\ w\ GameUtils.h,\ ale\ tutaj\ deklarujemy\ jej\ zależność}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ od\ GameBoard.}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ void\ Draw(int\ offsetX,\ int\ offsetY,\ bool\ showShips)\ const;}}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ProjektStatki\_GAMEBOARD\_H}}
+
+\end{DoxyCode}
