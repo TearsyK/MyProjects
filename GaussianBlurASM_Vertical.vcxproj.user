@@ -1,0 +1,351 @@
+; ============================================================================
+; Projekt: Rozmycie Gaussa - Konwolucja Pionowa (Faza 2)
+; Plik: GaussianBlurASM_Horizontal.asm
+; Autor: Kacper Kostanek
+; Data: Semestr zimowy 2025/2026
+; Wersja: 4.1
+;
+; Parametry:
+;   RCX - inputImage (unsigned char*, READ ONLY)
+;   RDX - tempBuffer (float*, WRITE ONLY)
+;   R8 - width
+;   R9 - stride
+;   [RSP+40] - startY
+;   [RSP+48] - endY
+;   [RSP+56] - height
+; ============================================================================
+
+.data
+.code
+
+PUBLIC GaussianBlurASM_Vertical
+GaussianBlurASM_Vertical PROC
+
+    push rbx
+    push rbp
+    push rdi
+    push rsi
+    push r12
+    push r13
+    push r14
+    push r15
+    sub rsp, 96
+
+    ; === SETUP REGISTERS ===
+    mov rsi, rcx                           ; rsi = input pointer
+    mov rdi, rdx                           ; rdi = output pointer
+    
+                                           ; r8 = width
+                                           ; r9 = stride
+    imul r8, r8, 3h
+    mov r10, qword ptr [rsp+40+160]       ; r10 = startY
+    mov r11, qword ptr [rsp+48+160]       ; r11 = endY
+    
+    mov r15, qword ptr [rsp+56+160]       ; r15 = height
+
+    ; === BUILD KERNEL VECTORS: [k0, k1, k2] ===
+    
+    mov eax, 10h 
+    vmovq xmm0, rax 
+    vpbroadcastw ymm3, xmm0
+    mov eax, 60h
+    vmovd xmm0, eax
+    vpbroadcastw ymm4, xmm0
+    mov eax, 20h
+    vmovd xmm0, eax
+    vpbroadcastw ymm6, xmm0
+
+    cmp r11, r15
+    jne not_end
+    sub r11, 2h
+not_end:
+    cmp r10, 0
+    jne horz_y_loop
+    
+    xor r14, r14
+first_row_loop:
+
+    mov  rax, r8                    ; eax = width
+    sub  rax, 10h                   ; eax = width - 16
+    cmp  r14, rax                   ; x < width - 16 ?
+    jnl first_row_finished
+
+    mov rax, r14
+    
+    ; Unpack 8-bit channels to 16-bit channels
+    vpmovzxbw ymm0, xmmword ptr [rsi+rax]
+    add rax, r9
+    vpmovzxbw ymm1, xmmword ptr [rsi+rax]
+
+    ; Multiply unpacked 16-bit channels by kernel vectors
+    vpmullw ymm0, ymm0, ymm4
+    vpmullw ymm1, ymm1, ymm6
+
+    ; Add up all vectors
+    vpaddw ymm0, ymm0, ymm1
+
+    ; Divide multiplied channels by 128 (Q7 * Q7 = Q14, we need to transform it back to Q7)
+    vpsraw ymm0, ymm0, 7
+
+    
+    
+
+    ; Pack 16-bit channels to 8-bit channels
+    vextracti128 xmm5, ymm0, 1
+    vpackuswb xmm0, xmm0, xmm5
+
+    ; Move transformed channels into memory
+    sub rax, r9
+    movdqu xmmword ptr [rdi+rax], xmm0
+
+    ; Prepare for next set of data from memory
+    add r14, 10h
+    jmp first_row_loop
+
+
+first_row_finished:
+
+    mov rax, r8
+    sub rax, 10h
+
+    ; Unpack 8-bit channels to 16-bit channels
+    vpmovzxbw ymm0, xmmword ptr [rsi+rax]
+    add rax, r9
+    vpmovzxbw ymm1, xmmword ptr [rsi+rax]
+    
+    
+
+    
+    ; Multiply unpacked 16-bit channels by kernel vectors
+    vpmullw ymm0, ymm0, ymm4
+    vpmullw ymm1, ymm1, ymm6
+
+    ; Add up all vectors
+    vpaddw ymm0, ymm0, ymm1
+
+    ; Divide multiplied channels by 128 (Q7 * Q7 = Q14, we need to transform it back to Q7)
+    vpsraw ymm0, ymm0, 7
+
+    
+    
+
+    ; Pack 16-bit channels to 8-bit channels
+    vextracti128 xmm5, ymm0, 1
+    vpackuswb xmm0, xmm0, xmm5
+
+    ; Move transformed channels into memory
+    sub rax, r9
+    movdqu xmmword ptr [rdi+rax], xmm0
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ; === PETLA Y - od startY do endY ===
+horz_y_loop:
+    
+    
+    cmp r10, r11
+    jge horz_y_complete
+
+    ; === PRE-CALCULATE y * stride ===
+    mov rax, r10                ; rax = y (64-bit)
+    mov rcx, r9                 ; rcx = stride
+    imul rax, rcx              ; rax = y * stride
+    mov r13, rax                    ; r13 = y*stride (tymczasowo)
+
+
+
+    ; === PETLA X ===
+    xor r14, r14                  ; r13d = x
+
+horz_x_loop:
+
+    mov  rax, r8              ; eax = width
+    sub  rax, 10h                ; eax = width - 16
+    cmp  r14, rax             ; x < width - 16 ?
+    jnl horz_x_complete
+
+    mov rax, r14
+    add rax, r13
+
+    ; Load data from memory to vector registers
+    ; And unpack 8-bit channels to 16-bit channels
+    vpmovzxbw ymm0, xmmword ptr [rsi+rax]
+    add rax, r9
+    vpmovzxbw ymm1, xmmword ptr [rsi+rax]
+    add rax, r9
+    vpmovzxbw ymm2, xmmword ptr [rsi+rax]
+    
+
+    
+    ; Multiply unpacked 16-bit channels by kernel vectors
+    vpmullw ymm0, ymm0, ymm3
+    vpmullw ymm2, ymm2, ymm3
+    vpmullw ymm1, ymm1, ymm4
+
+    ; Add up all vectors
+    vpaddw ymm0, ymm0, ymm1
+    vpaddw ymm0, ymm0, ymm2
+
+    ; Divide multiplied channels by 128 (Q7 * Q7 = Q14, we need to transform it back to Q7)
+    vpsraw ymm0, ymm0, 7
+
+
+    
+
+    ; Pack 16-bit channels to 8-bit channels
+    vextracti128 xmm5, ymm0, 1
+    vpackuswb xmm0, xmm0, xmm5
+
+    ; Move transformed channels into memory
+    sub rax, r9
+    movdqu xmmword ptr [rdi+rax], xmm0
+
+    mov  rax, r8              ; eax = width
+    sub  rax, 16h                ; eax = width - 16
+    cmp  r14, rax             ; x >= width - 16 ?
+    jnb horz_x_complete
+
+    ; Prepare for next set of data from memory
+    add r14, 10h
+    jmp horz_x_loop
+
+horz_x_complete:
+    
+    ; Load data from memory to vector registers
+    ; And unpack 8-bit channels to 16-bit channels
+    mov rax, r13
+    add rax, r8
+    sub rax, 10h
+    vpmovzxbw ymm0, xmmword ptr [rsi+rax]
+    add rax, r9
+    vpmovzxbw ymm1, xmmword ptr [rsi+rax]
+    add rax, r9
+    vpmovzxbw ymm2, xmmword ptr [rsi+rax]
+    
+    
+    
+    
+    ; Multiply unpacked 16-bit channels by kernel vectors
+    vpmullw ymm0, ymm0, ymm3
+    vpmullw ymm2, ymm2, ymm3
+    vpmullw ymm1, ymm1, ymm4
+    ; Add up all vectors
+    vpaddw ymm0, ymm0, ymm1
+    vpaddw ymm0, ymm0, ymm2
+
+    ; Divide multiplied channels by 128 (Q7 * Q7 = Q14, we need to transform it back to Q7)
+    vpsraw ymm0, ymm0, 7
+
+    ; Pack 16-bit channels to 8-bit channels
+    vextracti128 xmm5, ymm0, 1
+    vpackuswb xmm0, xmm0, xmm5
+
+    ; Move transformed channels into memory
+    sub rax, r9
+    movdqu xmmword ptr [rdi+rax], xmm0
+
+    inc r10
+    jmp horz_y_loop
+
+horz_y_complete:
+    
+    cmp r11, r15
+    je the_end
+
+    xor r14, r14
+ last_row_loop:
+
+    mov  rax, r8              ; eax = width
+    sub  rax, 10h                ; eax = width - 16
+    cmp  r14, rax             ; x < width - 16 ?
+    jnl last_row_finisheD
+
+    mov rax, r9
+    imul rax, r11
+    add rax, r14
+    
+    ; Unpack 8-bit channels to 16-bit channels
+    vpmovzxbw ymm0, xmmword ptr [rsi+rax]
+    add rax, r9
+    vpmovzxbw ymm1, xmmword ptr [rsi+rax]
+    
+    ; Multiply unpacked 16-bit channels by kernel vectors
+    vpmullw ymm0, ymm0, ymm6
+    vpmullw ymm1, ymm1, ymm4
+    vpaddw ymm1, ymm1, ymm0
+
+    ; Divide multiplied channels by 128 (Q7 * Q7 = Q14, we need to transform it back to Q7
+    vpsraw ymm1, ymm1, 7
+
+    ; Add up all vectors
+    
+
+    ; Pack 16-bit channels to 8-bit channels
+    vextracti128 xmm5, ymm1, 1
+    vpackuswb xmm1, xmm1, xmm5
+
+    ; Move transformed channels into memory
+    movdqu xmmword ptr [rdi+rax], xmm1
+
+    ; Prepare for next set of data from memory
+    add r14, 10h
+    jmp last_row_loop
+
+last_row_finished:
+
+    mov rax, r9
+    imul rax, r11
+    add rax, r8
+    sub rax, 10h
+
+; Unpack 8-bit channels to 16-bit channels
+    vpmovzxbw ymm0, xmmword ptr [rsi+rax]
+    add rax, r9
+    vpmovzxbw ymm1, xmmword ptr [rsi+rax]
+    
+    ; Multiply unpacked 16-bit channels by kernel vectors
+    vpmullw ymm0, ymm0, ymm6
+    vpmullw ymm1, ymm1, ymm4
+
+    ; Add up all vectors
+    vpaddw ymm1, ymm1, ymm0
+
+    ; Divide multiplied channels by 128 (Q7 * Q7 = Q14, we need to transform it back to Q7
+    vpsraw ymm1, ymm1, 7
+
+    
+    
+
+    ; Pack 16-bit channels to 8-bit channels
+    vextracti128 xmm5, ymm1, 1
+    vpackuswb xmm1, xmm1, xmm5
+
+    ; Move transformed channels into memory
+    movdqu xmmword ptr [rdi+rax], xmm1
+
+    the_end:
+
+    add rsp, 96
+    pop r15
+    pop r14
+    pop r13
+    pop r12
+    pop rsi
+    pop rdi
+    pop rbp
+    pop rbx
+    ret
+
+GaussianBlurASM_Vertical ENDP
+
+END
